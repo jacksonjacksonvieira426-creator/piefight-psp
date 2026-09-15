@@ -37,12 +37,21 @@ void j2me_canvas_serviceRepaints(void) { }
 void j2me_gc(void) { }
 void* j2me_image_get_graphics(void* img) { return img; }
 
+typedef struct Animator_s Animator;
+typedef struct PieCanvas_s PieCanvas;
+typedef struct PieMidlet_s PieMidlet;
+typedef struct Score_s Score;
+typedef struct Sprite_s Sprite;
+typedef struct SpriteEvent_s SpriteEvent;
+typedef struct SpriteListener_s SpriteListener;
+typedef struct State_s State;
+
 // Globais
 void* _self = 0;
 void* _p1_self = 0;
 void* _p2_self = 0;
 void* _role_self = 0;
-Animator* msf_mc = 0;
+PieCanvas* msf_mc = 0;
 int Game_count = 0;
 int MapCanvas_OFFY = 96;
 int MapCanvas_OFFX = 180;
@@ -234,7 +243,6 @@ void Sprite_setState(void* self, int arg0);
 int Sprite_getFrame(void* self);
 int Sprite_frameXPos(void* self, int arg0);
 int Sprite_frameYPos(void* self, int arg0);
-void SpriteEvent_constructor(void* self);
 void SpriteEvent_constructor(void* self, int arg0);
 int SpriteEvent_getEvent(void* self);
 void SpriteListener_spriteAction(void* self, void* arg0, void* arg1);
@@ -248,7 +256,7 @@ int State_atEnd(void* self);
 // Implementacoes
 void Animator_constructor(void* self, void* arg0, int arg1, int arg2, void* arg3) {
     Animator* s = (Animator*)self;
-    if (!s) return 0;
+    if (!s) return;
     // TODO: traduzir
 }
 
@@ -655,7 +663,7 @@ int main(void) {
     j2me_input_init();
     j2me_random_init();
 
-    Animator* mc = (Animator*)calloc(1, sizeof(Animator));
+    PieCanvas* mc = (PieCanvas*)calloc(1, sizeof(PieCanvas));
     _self = mc;
     msf_mc = mc;
 
