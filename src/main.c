@@ -25,6 +25,12 @@ typedef void* Display;
 typedef void* Displayable;
 typedef void* MIDlet;
 typedef void* Canvas;
+typedef void* Random;
+typedef void* Timer;
+typedef void* TimerTask;
+typedef void* Vector;
+typedef void* InputStream;
+typedef void* DataInputStream;
 
 PSP_MODULE_INFO("piefight", 0, 1, 0);
 PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER);
@@ -256,8 +262,8 @@ int Animator_targetsActive() {
 //   1x javax/microedition/lcdui/Canvas.serviceRepaints -> ??? javax/microedition/lcdui/Canvas.serviceRepaints
 void Animator_run(void* self) {
     Animator* a = (Animator*)self;
-    if (!a || !a->parent) return;
-    if (PieCanvas_isRunning(a->parent)) {
+    if (!a || !a->_parent) return;
+    if (PieCanvas_isRunning(a->_parent)) {
         for (int i = 0; i < Animator_IMAGES; i++) {
             if (a->window && a->window[i]) Sprite_animate(a->window[i]);
         }
@@ -412,7 +418,7 @@ void PieCanvas_paint(void* arg1) {
         if (s->endLevel > 1) {
             s->endLevel = 0;
             PieCanvas_nextLevel(s);
-            if (s->parent) PieMidlet_resetScoreNext(s->parent);
+            if (s->_parent) PieMidlet_resetScoreNext(s->_parent);
             j2me_gc();
         }
     } else {
