@@ -239,7 +239,10 @@ void Animator_spriteAction() {
 
 // === Animator.Animator_keyPressed ((I)V) ===
 // Instrucoes: 57
-void Animator_keyPressed(s->_sprites) {
+void Animator_keyPressed(void* self, int arg0) {
+    Animator* s = (Animator*)self;
+    (void)arg0;
+    if (!s) return;
     // TODO: traduzir logica do bytecode
 }
 
@@ -310,7 +313,7 @@ void PieCanvas_keyPressed(int arg0) {
     if (!s) return;
     int n = arg0 - 48;
     if (n > 0 && n < 7 && s->_sprites != 0) {
-        Animator_keyPressed(s->_sprites);
+        Animator_keyPressed(s->_sprites, n);
     }
 }
 
@@ -388,7 +391,8 @@ void PieCanvas_targetHit() {
 //   1x javax/microedition/lcdui/Graphics.fillRect -> j2me_gfx_fill_rect
 //   1x javax/microedition/lcdui/Graphics.setFont -> j2me_noop
 //   1x javax/microedition/lcdui/Graphics.drawImage -> j2me_image_blit
-void PieCanvas_drawScore() {
+void PieCanvas_drawScore(void* self, void* g) {
+    (void)self; (void)g;
     // TODO: traduzir logica do bytecode
 }
 
@@ -408,7 +412,8 @@ void PieCanvas_endScore() {
 //   2x java/lang/Integer.toString -> j2me_int_to_string
 //   1x javax/microedition/lcdui/Graphics.setClip -> j2me_clip_push
 //   1x javax/microedition/lcdui/Graphics.drawRect -> ??? javax/microedition/lcdui/Graphics.drawRect
-void PieCanvas_drawGame() {
+void PieCanvas_drawGame(void* self, void* g) {
+    (void)self; (void)g;
     // TODO: traduzir logica do bytecode
 }
 
