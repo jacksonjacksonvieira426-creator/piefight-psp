@@ -1,0 +1,18 @@
+// Classe: PieCanvas
+// Metodo: targetHit
+// Descritor: ()V
+// Instrucoes: 13
+
+[   0] aload_0
+[   1] dup
+[   2] getfield PieCanvas._targetsHit
+[   3] iconst_1
+[   4] iadd
+[   5] putfield PieCanvas._targetsHit
+[   6] aload_0
+[   7] dup
+[   8] getfield PieCanvas._ammoFrameCount
+[   9] iconst_2
+[  10] iadd
+[  11] putfield PieCanvas._ammoFrameCount
+[  12] return

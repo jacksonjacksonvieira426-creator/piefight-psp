@@ -1,0 +1,8 @@
+// Classe: State
+// Metodo: current
+// Descritor: ()I
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield State._frame
+[   2] ireturn

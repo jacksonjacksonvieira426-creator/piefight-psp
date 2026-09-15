@@ -1,0 +1,9 @@
+// Classe: Sprite
+// Metodo: setX
+// Descritor: (I)V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] iload_1
+[   2] putfield Sprite._xpos
+[   3] return

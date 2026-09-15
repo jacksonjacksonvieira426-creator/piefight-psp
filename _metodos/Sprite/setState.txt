@@ -1,0 +1,18 @@
+// Classe: Sprite
+// Metodo: setState
+// Descritor: (I)V
+// Instrucoes: 13
+
+[   0] aload_0
+[   1] iload_1
+[   2] putfield Sprite._currentState
+[   3] aload_0
+[   4] iconst_0
+[   5] putfield Sprite._painted
+[   6] aload_0
+[   7] getfield Sprite._state
+[   8] aload_0
+[   9] getfield Sprite._currentState
+[  10] aaload
+[  11] invokevirtual org/eaves/piefight/State.init
+[  12] return

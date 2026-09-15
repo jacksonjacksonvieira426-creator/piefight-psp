@@ -1,0 +1,10 @@
+// Classe: State
+// Metodo: init
+// Descritor: ()V
+// Instrucoes: 5
+
+[   0] aload_0
+[   1] aload_0
+[   2] getfield State._start
+[   3] putfield State._frame
+[   4] return

@@ -1,0 +1,11 @@
+// Classe: SpriteEvent
+// Metodo: <init>
+// Descritor: (I)V
+// Instrucoes: 6
+
+[   0] aload_0
+[   1] invokespecial java/lang/Object.<init>
+[   2] aload_0
+[   3] iload_1
+[   4] putfield SpriteEvent._event
+[   5] return

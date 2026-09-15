@@ -1,0 +1,18 @@
+// Classe: PieCanvas
+// Metodo: ammoAvailable
+// Descritor: ()Z
+// Instrucoes: 13
+
+[   0] aload_0
+[   1] getfield PieCanvas._pieCount
+[   2] ifle 15
+[   3] aload_0
+[   4] dup
+[   5] getfield PieCanvas._pieCount
+[   6] iconst_1
+[   7] isub
+[   8] putfield PieCanvas._pieCount
+[   9] iconst_1
+[  10] ireturn
+[  11] iconst_0
+[  12] ireturn

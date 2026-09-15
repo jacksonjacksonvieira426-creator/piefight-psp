@@ -1,0 +1,8 @@
+// Classe: SpriteEvent
+// Metodo: getEvent
+// Descritor: ()I
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield SpriteEvent._event
+[   2] ireturn

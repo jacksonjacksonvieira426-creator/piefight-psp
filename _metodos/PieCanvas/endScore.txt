@@ -1,0 +1,9 @@
+// Classe: PieCanvas
+// Metodo: endScore
+// Descritor: ()V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] iconst_2
+[   2] putfield PieCanvas._endLevel
+[   3] return

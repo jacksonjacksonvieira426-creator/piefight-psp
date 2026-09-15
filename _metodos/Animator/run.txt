@@ -1,0 +1,28 @@
+// Classe: Animator
+// Metodo: run
+// Descritor: ()V
+// Instrucoes: 23
+
+[   0] aload_0
+[   1] getfield Animator._parent
+[   2] invokevirtual org/eaves/piefight/PieCanvas.isRunning
+[   3] ifeq 27
+[   4] iconst_0
+[   5] istore_1
+[   6] goto 15
+[   7] aload_0
+[   8] getfield Animator._window
+[   9] iload_1
+[  10] aaload
+[  11] invokevirtual org/eaves/piefight/Sprite.animate
+[  12] iinc 1
+[  13] iload_1
+[  14] getstatic Animator.IMAGES
+[  15] if_icmplt -16
+[  16] aload_0
+[  17] getfield Animator._parent
+[  18] invokevirtual javax/microedition/lcdui/Canvas.repaint
+[  19] aload_0
+[  20] getfield Animator._parent
+[  21] invokevirtual javax/microedition/lcdui/Canvas.serviceRepaints
+[  22] return

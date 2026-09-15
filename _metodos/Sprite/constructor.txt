@@ -1,0 +1,21 @@
+// Classe: Sprite
+// Metodo: <init>
+// Descritor: (Ljavax/microedition/lcdui/Image;)V
+// Instrucoes: 16
+
+[   0] aload_0
+[   1] invokespecial java/lang/Object.<init>
+[   2] aload_0
+[   3] iconst_0
+[   4] putfield Sprite._moved
+[   5] aload_0
+[   6] iconst_0
+[   7] putfield Sprite._painted
+[   8] aload_0
+[   9] aload_1
+[  10] putfield Sprite._strip
+[  11] aload_0
+[  12] bipush 8
+[  13] anewarray 5
+[  14] putfield Sprite._state
+[  15] return

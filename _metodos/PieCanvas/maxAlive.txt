@@ -1,0 +1,8 @@
+// Classe: PieCanvas
+// Metodo: maxAlive
+// Descritor: ()I
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield PieCanvas._maxAlive
+[   2] ireturn

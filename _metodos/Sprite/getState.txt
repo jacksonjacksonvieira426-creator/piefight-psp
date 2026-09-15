@@ -1,0 +1,8 @@
+// Classe: Sprite
+// Metodo: getState
+// Descritor: ()I
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield Sprite._currentState
+[   2] ireturn

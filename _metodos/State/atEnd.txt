@@ -1,0 +1,14 @@
+// Classe: State
+// Metodo: atEnd
+// Descritor: ()Z
+// Instrucoes: 9
+
+[   0] aload_0
+[   1] getfield State._frame
+[   2] aload_0
+[   3] getfield State._end
+[   4] if_icmpne 7
+[   5] iconst_1
+[   6] goto 4
+[   7] iconst_0
+[   8] ireturn

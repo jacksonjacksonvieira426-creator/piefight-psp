@@ -1,0 +1,62 @@
+// Classe: Animator
+// Metodo: keyPressed
+// Descritor: (I)V
+// Instrucoes: 57
+
+[   0] aload_0
+[   1] getfield Animator._parent
+[   2] invokevirtual org/eaves/piefight/PieCanvas.ammoAvailable
+[   3] ifne 4
+[   4] return
+[   5] iload_1
+[   6] iconst_1
+[   7] isub
+[   8] istore_2
+[   9] aload_0
+[  10] getfield Animator._window
+[  11] iload_2
+[  12] aaload
+[  13] invokevirtual org/eaves/piefight/Sprite.throwAt
+[  14] aload_0
+[  15] getfield Animator._window
+[  16] iload_2
+[  17] aaload
+[  18] invokevirtual org/eaves/piefight/Sprite.getState
+[  19] istore_3
+[  20] iload_3
+[  21] iconst_1
+[  22] if_icmpne 23
+[  23] aload_0
+[  24] getfield Animator._parent
+[  25] invokevirtual org/eaves/piefight/PieCanvas.targetHit
+[  26] aload_0
+[  27] getfield Animator._window
+[  28] iload_2
+[  29] aaload
+[  30] iconst_5
+[  31] invokevirtual org/eaves/piefight/Sprite.setState
+[  32] goto 44
+[  33] iload_3
+[  34] ifeq 8
+[  35] iload_3
+[  36] iconst_2
+[  37] if_icmpne 14
+[  38] aload_0
+[  39] getfield Animator._window
+[  40] iload_2
+[  41] aaload
+[  42] bipush 6
+[  43] invokevirtual org/eaves/piefight/Sprite.setState
+[  44] iload_3
+[  45] iconst_3
+[  46] if_icmpeq 8
+[  47] iload_3
+[  48] iconst_4
+[  49] if_icmpne 14
+[  50] aload_0
+[  51] getfield Animator._window
+[  52] iload_2
+[  53] aaload
+[  54] bipush 7
+[  55] invokevirtual org/eaves/piefight/Sprite.setState
+[  56] return

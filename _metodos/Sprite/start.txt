@@ -1,0 +1,81 @@
+// Classe: Sprite
+// Metodo: start
+// Descritor: ()V
+// Instrucoes: 76
+
+[   0] aload_0
+[   1] getfield Sprite._state
+[   2] iconst_4
+[   3] new 5
+[   4] dup
+[   5] iconst_0
+[   6] iconst_1
+[   7] invokespecial org/eaves/piefight/State.<init>
+[   8] aastore
+[   9] aload_0
+[  10] getfield Sprite._state
+[  11] iconst_0
+[  12] new 5
+[  13] dup
+[  14] bipush 7
+[  15] iconst_5
+[  16] invokespecial org/eaves/piefight/State.<init>
+[  17] aastore
+[  18] aload_0
+[  19] getfield Sprite._state
+[  20] iconst_1
+[  21] new 5
+[  22] dup
+[  23] bipush 11
+[  24] iconst_4
+[  25] invokespecial org/eaves/piefight/State.<init>
+[  26] aastore
+[  27] aload_0
+[  28] getfield Sprite._state
+[  29] iconst_2
+[  30] new 5
+[  31] dup
+[  32] bipush 15
+[  33] iconst_4
+[  34] invokespecial org/eaves/piefight/State.<init>
+[  35] aastore
+[  36] aload_0
+[  37] getfield Sprite._state
+[  38] iconst_3
+[  39] new 5
+[  40] dup
+[  41] iconst_0
+[  42] bipush 7
+[  43] invokespecial org/eaves/piefight/State.<init>
+[  44] aastore
+[  45] aload_0
+[  46] getfield Sprite._state
+[  47] iconst_5
+[  48] new 5
+[  49] dup
+[  50] bipush 39
+[  51] bipush 11
+[  52] invokespecial org/eaves/piefight/State.<init>
+[  53] aastore
+[  54] aload_0
+[  55] getfield Sprite._state
+[  56] bipush 6
+[  57] new 5
+[  58] dup
+[  59] bipush 27
+[  60] bipush 12
+[  61] invokespecial org/eaves/piefight/State.<init>
+[  62] aastore
+[  63] aload_0
+[  64] getfield Sprite._state
+[  65] bipush 7
+[  66] new 5
+[  67] dup
+[  68] bipush 20
+[  69] bipush 7
+[  70] invokespecial org/eaves/piefight/State.<init>
+[  71] aastore
+[  72] aload_0
+[  73] iconst_4
+[  74] invokevirtual org/eaves/piefight/Sprite.setState
+[  75] return

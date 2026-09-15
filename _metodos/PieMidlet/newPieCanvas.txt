@@ -1,0 +1,15 @@
+// Classe: PieMidlet
+// Metodo: newPieCanvas
+// Descritor: ()V
+// Instrucoes: 10
+
+[   0] aload_0
+[   1] getfield PieMidlet._display
+[   2] aload_0
+[   3] getfield PieMidlet._pie
+[   4] invokevirtual javax/microedition/lcdui/Display.setCurrent
+[   5] aload_0
+[   6] iconst_1
+[   7] putfield PieMidlet._started
+[   8] invokestatic java/lang/System.gc
+[   9] return

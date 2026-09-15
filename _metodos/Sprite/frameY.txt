@@ -1,0 +1,9 @@
+// Classe: Sprite
+// Metodo: frameY
+// Descritor: (I)V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] iload_1
+[   2] putfield Sprite._frameY
+[   3] return

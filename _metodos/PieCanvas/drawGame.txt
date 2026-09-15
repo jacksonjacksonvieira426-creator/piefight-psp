@@ -1,0 +1,144 @@
+// Classe: PieCanvas
+// Metodo: drawGame
+// Descritor: (Ljavax/microedition/lcdui/Graphics;)V
+// Instrucoes: 139
+
+[   0] aload_1
+[   1] ldc 59
+[   2] invokevirtual javax/microedition/lcdui/Graphics.setColor
+[   3] aload_1
+[   4] iconst_0
+[   5] iconst_0
+[   6] aload_0
+[   7] getfield PieCanvas._width
+[   8] aload_0
+[   9] getfield PieCanvas._height
+[  10] invokevirtual javax/microedition/lcdui/Graphics.fillRect
+[  11] aload_0
+[  12] getfield PieCanvas._ammoFrameCount
+[  13] aload_0
+[  14] getfield PieCanvas._ammoRecoveryDelta
+[  15] if_icmple 29
+[  16] aload_0
+[  17] getfield PieCanvas._pieCount
+[  18] aload_0
+[  19] getfield PieCanvas.MAX_AMMO
+[  20] if_icmpge 13
+[  21] aload_0
+[  22] dup
+[  23] getfield PieCanvas._pieCount
+[  24] iconst_1
+[  25] iadd
+[  26] putfield PieCanvas._pieCount
+[  27] aload_0
+[  28] iconst_0
+[  29] putfield PieCanvas._ammoFrameCount
+[  30] aload_0
+[  31] dup
+[  32] getfield PieCanvas._ammoFrameCount
+[  33] iconst_1
+[  34] iadd
+[  35] putfield PieCanvas._ammoFrameCount
+[  36] aload_1
+[  37] ldc 59
+[  38] invokevirtual javax/microedition/lcdui/Graphics.setColor
+[  39] aload_1
+[  40] iconst_0
+[  41] iconst_0
+[  42] aload_0
+[  43] getfield PieCanvas._width
+[  44] aload_0
+[  45] getfield PieCanvas._height
+[  46] invokevirtual javax/microedition/lcdui/Graphics.fillRect
+[  47] aload_0
+[  48] getfield PieCanvas._sprites
+[  49] aload_1
+[  50] invokevirtual org/eaves/piefight/Animator.draw
+[  51] aload_1
+[  52] iconst_0
+[  53] iconst_0
+[  54] aload_0
+[  55] getfield PieCanvas._width
+[  56] aload_0
+[  57] getfield PieCanvas._height
+[  58] invokevirtual javax/microedition/lcdui/Graphics.setClip
+[  59] aload_1
+[  60] iconst_0
+[  61] invokevirtual javax/microedition/lcdui/Graphics.setColor
+[  62] iconst_0
+[  63] istore_2
+[  64] goto 61
+[  65] iload_2
+[  66] aload_0
+[  67] getfield PieCanvas._pieCount
+[  68] if_icmpge 28
+[  69] aload_1
+[  70] aload_0
+[  71] getfield PieCanvas._ammoDisplayX
+[  72] aload_0
+[  73] getfield PieCanvas._ammoDisplayDelta
+[  74] iload_2
+[  75] imul
+[  76] iadd
+[  77] aload_0
+[  78] getfield PieCanvas._ammoDisplayY
+[  79] bipush 8
+[  80] iconst_4
+[  81] invokevirtual javax/microedition/lcdui/Graphics.fillRect
+[  82] goto 25
+[  83] aload_1
+[  84] aload_0
+[  85] getfield PieCanvas._ammoDisplayX
+[  86] aload_0
+[  87] getfield PieCanvas._ammoDisplayDelta
+[  88] iload_2
+[  89] imul
+[  90] iadd
+[  91] aload_0
+[  92] getfield PieCanvas._ammoDisplayY
+[  93] bipush 7
+[  94] iconst_3
+[  95] invokevirtual javax/microedition/lcdui/Graphics.drawRect
+[  96] iinc 2
+[  97] iload_2
+[  98] aload_0
+[  99] getfield PieCanvas.MAX_AMMO
+[ 100] if_icmplt -63
+[ 101] aload_1
+[ 102] aload_0
+[ 103] getfield PieCanvas._mfont
+[ 104] invokevirtual javax/microedition/lcdui/Graphics.setFont
+[ 105] aload_1
+[ 106] ldc 82
+[ 107] iconst_5
+[ 108] aload_0
+[ 109] getfield PieCanvas._ammoDisplayY
+[ 110] iconst_1
+[ 111] isub
+[ 112] bipush 68
+[ 113] invokevirtual javax/microedition/lcdui/Graphics.drawString
+[ 114] aload_1
+[ 115] aload_0
+[ 116] getfield PieCanvas._nfont
+[ 117] invokevirtual javax/microedition/lcdui/Graphics.setFont
+[ 118] aload_1
+[ 119] aload_0
+[ 120] getfield PieCanvas._targetsHit
+[ 121] invokestatic java/lang/Integer.toString
+[ 122] aload_0
+[ 123] getfield PieCanvas._targetsHitX
+[ 124] aload_0
+[ 125] getfield PieCanvas._infoLineY
+[ 126] bipush 72
+[ 127] invokevirtual javax/microedition/lcdui/Graphics.drawString
+[ 128] aload_1
+[ 129] aload_0
+[ 130] getfield PieCanvas._targetsLeft
+[ 131] invokestatic java/lang/Integer.toString
+[ 132] aload_0
+[ 133] getfield PieCanvas._targetsLeftX
+[ 134] aload_0
+[ 135] getfield PieCanvas._infoLineY
+[ 136] bipush 72
+[ 137] invokevirtual javax/microedition/lcdui/Graphics.drawString
+[ 138] return

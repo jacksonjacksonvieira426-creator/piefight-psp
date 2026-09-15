@@ -1,0 +1,8 @@
+// Classe: Sprite
+// Metodo: frameYPos
+// Descritor: (I)I
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield Sprite._frameY
+[   2] ireturn

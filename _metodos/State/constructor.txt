@@ -1,0 +1,23 @@
+// Classe: State
+// Metodo: <init>
+// Descritor: (II)V
+// Instrucoes: 18
+
+[   0] aload_0
+[   1] invokespecial java/lang/Object.<init>
+[   2] aload_0
+[   3] iload_1
+[   4] putfield State._start
+[   5] aload_0
+[   6] aload_0
+[   7] getfield State._start
+[   8] iload_2
+[   9] iconst_1
+[  10] isub
+[  11] iadd
+[  12] putfield State._end
+[  13] aload_0
+[  14] aload_0
+[  15] getfield State._start
+[  16] putfield State._frame
+[  17] return

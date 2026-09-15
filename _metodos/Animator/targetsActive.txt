@@ -1,0 +1,28 @@
+// Classe: Animator
+// Metodo: targetsActive
+// Descritor: ()I
+// Instrucoes: 23
+
+[   0] iconst_0
+[   1] istore_1
+[   2] iconst_0
+[   3] istore_3
+[   4] goto 28
+[   5] aload_0
+[   6] getfield Animator._window
+[   7] iload_3
+[   8] aaload
+[   9] invokevirtual org/eaves/piefight/Sprite.getState
+[  10] istore_2
+[  11] iload_2
+[  12] ifeq 8
+[  13] iload_2
+[  14] iconst_1
+[  15] if_icmpne 6
+[  16] iinc 1
+[  17] iinc 3
+[  18] iload_3
+[  19] getstatic Animator.IMAGES
+[  20] if_icmplt -29
+[  21] iload_1
+[  22] ireturn

@@ -1,0 +1,9 @@
+// Classe: Sprite
+// Metodo: setListener
+// Descritor: (Lorg/eaves/piefight/SpriteListener;)V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] aload_1
+[   2] putfield Sprite._listener
+[   3] return

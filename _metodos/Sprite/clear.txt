@@ -1,0 +1,22 @@
+// Classe: Sprite
+// Metodo: clear
+// Descritor: (Ljavax/microedition/lcdui/Graphics;II)V
+// Instrucoes: 17
+
+[   0] aload_1
+[   1] ldc 30
+[   2] invokevirtual javax/microedition/lcdui/Graphics.setColor
+[   3] aload_1
+[   4] iload_2
+[   5] iload_3
+[   6] aload_0
+[   7] getfield Sprite._frameX
+[   8] aload_0
+[   9] getfield Sprite._frameY
+[  10] iconst_4
+[  11] iadd
+[  12] invokevirtual javax/microedition/lcdui/Graphics.fillRect
+[  13] aload_1
+[  14] iconst_0
+[  15] invokevirtual javax/microedition/lcdui/Graphics.setColor
+[  16] return

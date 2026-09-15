@@ -1,0 +1,48 @@
+// Classe: PieCanvas
+// Metodo: paint
+// Descritor: (Ljavax/microedition/lcdui/Graphics;)V
+// Instrucoes: 43
+
+[   0] aload_1
+[   1] astore_2
+[   2] aload_0
+[   3] getfield PieCanvas._offscreen
+[   4] ifnull 11
+[   5] aload_0
+[   6] getfield PieCanvas._offscreen
+[   7] invokevirtual javax/microedition/lcdui/Image.getGraphics
+[   8] astore_1
+[   9] aload_0
+[  10] getfield PieCanvas._endLevel
+[  11] ifle 38
+[  12] aload_0
+[  13] aload_1
+[  14] invokevirtual org/eaves/piefight/PieCanvas.drawScore
+[  15] aload_0
+[  16] getfield PieCanvas._endLevel
+[  17] iconst_1
+[  18] if_icmple 30
+[  19] aload_0
+[  20] iconst_0
+[  21] putfield PieCanvas._endLevel
+[  22] aload_0
+[  23] invokevirtual org/eaves/piefight/PieCanvas.nextLevel
+[  24] aload_0
+[  25] getfield PieCanvas._parent
+[  26] invokevirtual org/eaves/piefight/PieMidlet.resetScoreNext
+[  27] invokestatic java/lang/System.gc
+[  28] goto 8
+[  29] aload_0
+[  30] aload_1
+[  31] invokevirtual org/eaves/piefight/PieCanvas.drawGame
+[  32] aload_1
+[  33] aload_2
+[  34] if_acmpeq 15
+[  35] aload_2
+[  36] aload_0
+[  37] getfield PieCanvas._offscreen
+[  38] iconst_0
+[  39] iconst_0
+[  40] bipush 20
+[  41] invokevirtual javax/microedition/lcdui/Graphics.drawImage
+[  42] return

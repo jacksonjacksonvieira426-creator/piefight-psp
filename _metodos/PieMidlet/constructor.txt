@@ -1,0 +1,66 @@
+// Classe: PieMidlet
+// Metodo: <init>
+// Descritor: ()V
+// Instrucoes: 61
+
+[   0] aload_0
+[   1] invokespecial javax/microedition/midlet/MIDlet.<init>
+[   2] aload_0
+[   3] ldc 2
+[   4] putfield PieMidlet.NAME
+[   5] aload_0
+[   6] ldc 4
+[   7] putfield PieMidlet.NULL_VERSION
+[   8] aload_0
+[   9] aconst_null
+[  10] putfield PieMidlet._scoreNext
+[  11] aload_0
+[  12] iconst_0
+[  13] putfield PieMidlet._scoreNextAdded
+[  14] aload_0
+[  15] iconst_0
+[  16] putfield PieMidlet._started
+[  17] aload_0
+[  18] iconst_0
+[  19] putfield PieMidlet._introDone
+[  20] aload_0
+[  21] aload_0
+[  22] ldc 10
+[  23] invokevirtual javax/microedition/midlet/MIDlet.getAppProperty
+[  24] putfield PieMidlet._version
+[  25] goto 10
+[  26] astore_1
+[  27] aload_0
+[  28] ldc 4
+[  29] putfield PieMidlet._version
+[  30] aload_0
+[  31] getfield PieMidlet._version
+[  32] ifnonnull 9
+[  33] aload_0
+[  34] ldc 4
+[  35] putfield PieMidlet._version
+[  36] aload_0
+[  37] new 14
+[  38] dup
+[  39] ldc 15
+[  40] bipush 7
+[  41] iconst_1
+[  42] invokespecial javax/microedition/lcdui/Command.<init>
+[  43] putfield PieMidlet._exit
+[  44] aload_0
+[  45] new 14
+[  46] dup
+[  47] ldc 18
+[  48] iconst_4
+[  49] iconst_1
+[  50] invokespecial javax/microedition/lcdui/Command.<init>
+[  51] putfield PieMidlet._next
+[  52] aload_0
+[  53] new 14
+[  54] dup
+[  55] ldc 18
+[  56] iconst_4
+[  57] iconst_1
+[  58] invokespecial javax/microedition/lcdui/Command.<init>
+[  59] putfield PieMidlet._scoreNext
+[  60] return

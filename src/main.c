@@ -254,8 +254,16 @@ int Animator_targetsActive() {
 // APIs usadas:
 //   1x javax/microedition/lcdui/Canvas.repaint -> j2me_canvas_repaint
 //   1x javax/microedition/lcdui/Canvas.serviceRepaints -> ??? javax/microedition/lcdui/Canvas.serviceRepaints
-void Animator_run() {
-    // TODO: traduzir logica do bytecode
+void Animator_run(void* self) {
+    Animator* a = (Animator*)self;
+    if (!a || !a->parent) return;
+    if (PieCanvas_isRunning(a->parent)) {
+        for (int i = 0; i < Animator_IMAGES; i++) {
+            if (a->window && a->window[i]) Sprite_animate(a->window[i]);
+        }
+        j2me_canvas_repaint();
+        j2me_canvas_serviceRepaints();
+    }
 }
 
 // === PieCanvas.PieCanvas_constructor ((Lorg/eaves/piefight/PieMidlet;)V) ===
@@ -281,8 +289,13 @@ void PieCanvas_changeLevel() {
 
 // === PieCanvas.PieCanvas_keyPressed ((I)V) ===
 // Instrucoes: 14
-void PieCanvas_keyPressed() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_keyPressed(int arg0) {
+    PieCanvas* s = (PieCanvas*)_self;
+    if (!s) return;
+    int n = arg0 - 48;
+    if (n > 0 && n < 7 && s->sprites != 0) {
+        Animator_keyPressed(s->sprites, n);
+    }
 }
 
 // === PieCanvas.PieCanvas_ammoAvailable (()Z) ===
@@ -389,8 +402,25 @@ void PieCanvas_drawGame() {
 //   1x javax/microedition/lcdui/Image.getGraphics -> j2me_image_get_graphics
 //   1x java/lang/System.gc -> ??? java/lang/System.gc
 //   1x javax/microedition/lcdui/Graphics.drawImage -> j2me_image_blit
-void PieCanvas_paint() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_paint(void* arg1) {
+    PieCanvas* s = (PieCanvas*)_self;
+    if (!s) return;
+    void* g = arg1;
+    if (s->offscreen != 0) g = j2me_image_get_graphics(s->offscreen);
+    if (s->endLevel > 0) {
+        PieCanvas_drawScore(s, g);
+        if (s->endLevel > 1) {
+            s->endLevel = 0;
+            PieCanvas_nextLevel(s);
+            if (s->parent) PieMidlet_resetScoreNext(s->parent);
+            j2me_gc();
+        }
+    } else {
+        PieCanvas_drawGame(s, g);
+    }
+    if (arg1 != s->offscreen && s->offscreen) {
+        j2me_image_blit((J2MEImage*)s->offscreen, 0, 0);
+    }
 }
 
 // === PieMidlet.PieMidlet_constructor (()V) ===
@@ -668,8 +698,10 @@ int State_prev() {
 
 // === State.State_init (()V) ===
 // Instrucoes: 5
-void State_init() {
-    // TODO: traduzir logica do bytecode
+void State_init(void* self) {
+    State* s = (State*)self;
+    if (!s) return;
+    s->frame = s->start;
 }
 
 // === State.State_current (()I) ===

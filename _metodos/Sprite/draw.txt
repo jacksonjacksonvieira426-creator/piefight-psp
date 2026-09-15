@@ -1,0 +1,88 @@
+// Classe: Sprite
+// Metodo: draw
+// Descritor: (Ljavax/microedition/lcdui/Graphics;)V
+// Instrucoes: 83
+
+[   0] aload_0
+[   1] getfield Sprite._ypos
+[   2] aload_0
+[   3] getfield Sprite._frameY
+[   4] iadd
+[   5] iconst_2
+[   6] iadd
+[   7] istore_2
+[   8] aload_0
+[   9] getfield Sprite._thrownAt
+[  10] iconst_5
+[  11] imul
+[  12] istore_3
+[  13] aload_0
+[  14] getfield Sprite._xpos
+[  15] aload_0
+[  16] getfield Sprite._frameX
+[  17] iconst_2
+[  18] idiv
+[  19] iadd
+[  20] iload_3
+[  21] iconst_2
+[  22] idiv
+[  23] isub
+[  24] istore 4
+[  25] aload_0
+[  26] aload_1
+[  27] aload_0
+[  28] getfield Sprite._xpos
+[  29] aload_0
+[  30] getfield Sprite._ypos
+[  31] invokevirtual org/eaves/piefight/Sprite.clear
+[  32] aload_1
+[  33] aload_0
+[  34] getfield Sprite._xpos
+[  35] aload_0
+[  36] getfield Sprite._ypos
+[  37] aload_0
+[  38] getfield Sprite._frameX
+[  39] aload_0
+[  40] getfield Sprite._frameY
+[  41] iconst_5
+[  42] iadd
+[  43] invokevirtual javax/microedition/lcdui/Graphics.clipRect
+[  44] aload_0
+[  45] invokevirtual org/eaves/piefight/Sprite.getFrame
+[  46] istore 5
+[  47] aload_1
+[  48] aload_0
+[  49] getfield Sprite._strip
+[  50] aload_0
+[  51] getfield Sprite._xpos
+[  52] aload_0
+[  53] iload 5
+[  54] invokespecial org/eaves/piefight/Sprite.frameXPos
+[  55] isub
+[  56] aload_0
+[  57] getfield Sprite._ypos
+[  58] bipush 20
+[  59] invokevirtual javax/microedition/lcdui/Graphics.drawImage
+[  60] aload_0
+[  61] getfield Sprite._state
+[  62] aload_0
+[  63] getfield Sprite._currentState
+[  64] aaload
+[  65] invokevirtual org/eaves/piefight/State.atEnd
+[  66] ifeq 10
+[  67] aload_0
+[  68] getstatic SpriteEvent.END_STATE
+[  69] invokespecial org/eaves/piefight/Sprite.action
+[  70] aload_0
+[  71] getfield Sprite._thrownAt
+[  72] ifle 12
+[  73] aload_1
+[  74] iload 4
+[  75] iload_2
+[  76] iload_3
+[  77] iconst_3
+[  78] invokevirtual javax/microedition/lcdui/Graphics.fillRect
+[  79] aload_0
+[  80] iconst_1
+[  81] putfield Sprite._painted
+[  82] return

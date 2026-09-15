@@ -1,0 +1,67 @@
+// Classe: Animator
+// Metodo: spriteAction
+// Descritor: (Lorg/eaves/piefight/Sprite;Lorg/eaves/piefight/SpriteEvent;)V
+// Instrucoes: 62
+
+[   0] aload_2
+[   1] invokevirtual org/eaves/piefight/SpriteEvent.getEvent
+[   2] getstatic SpriteEvent.END_STATE
+[   3] if_icmpne 160
+[   4] aload_1
+[   5] invokevirtual org/eaves/piefight/Sprite.getState
+[   6] istore_3
+[   7] iload_3
+[   8] tableswitch 147
+[   9] aload_0
+[  10] getfield Animator._r
+[  11] invokevirtual java/util/Random.nextInt
+[  12] invokestatic java/lang/Math.abs
+[  13] bipush 100
+[  14] irem
+[  15] istore 4
+[  16] iload 4
+[  17] iconst_5
+[  18] if_icmpge 8
+[  19] aload_1
+[  20] iconst_3
+[  21] invokevirtual org/eaves/piefight/Sprite.setState
+[  22] iload 4
+[  23] bipush 95
+[  24] if_icmple 77
+[  25] aload_0
+[  26] aload_1
+[  27] invokevirtual org/eaves/piefight/Animator.guardState
+[  28] goto 69
+[  29] aload_0
+[  30] getfield Animator._r
+[  31] invokevirtual java/util/Random.nextInt
+[  32] invokestatic java/lang/Math.abs
+[  33] bipush 100
+[  34] irem
+[  35] istore 4
+[  36] iload 4
+[  37] bipush 10
+[  38] if_icmpge 11
+[  39] aload_0
+[  40] aload_1
+[  41] invokevirtual org/eaves/piefight/Animator.guardState
+[  42] goto 39
+[  43] aload_1
+[  44] iconst_4
+[  45] invokevirtual org/eaves/piefight/Sprite.setState
+[  46] goto 31
+[  47] aload_1
+[  48] iconst_4
+[  49] invokevirtual org/eaves/piefight/Sprite.setState
+[  50] goto 23
+[  51] aload_1
+[  52] iconst_2
+[  53] invokevirtual org/eaves/piefight/Sprite.setState
+[  54] goto 15
+[  55] aload_1
+[  56] iconst_3
+[  57] invokevirtual org/eaves/piefight/Sprite.setState
+[  58] goto 7
+[  59] aload_1
+[  60] invokevirtual org/eaves/piefight/Sprite.nextState
+[  61] return

@@ -1,0 +1,32 @@
+// Classe: State
+// Metodo: next
+// Descritor: ()I
+// Instrucoes: 27
+
+[   0] aload_0
+[   1] dup
+[   2] getfield State._frame
+[   3] iconst_1
+[   4] iadd
+[   5] putfield State._frame
+[   6] aload_0
+[   7] getfield State._frame
+[   8] aload_0
+[   9] getfield State._start
+[  10] if_icmpge 11
+[  11] aload_0
+[  12] aload_0
+[  13] getfield State._start
+[  14] putfield State._frame
+[  15] aload_0
+[  16] getfield State._frame
+[  17] aload_0
+[  18] getfield State._end
+[  19] if_icmple 11
+[  20] aload_0
+[  21] aload_0
+[  22] getfield State._end
+[  23] putfield State._frame
+[  24] aload_0
+[  25] getfield State._frame
+[  26] ireturn

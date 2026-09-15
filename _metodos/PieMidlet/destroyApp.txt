@@ -1,0 +1,6 @@
+// Classe: PieMidlet
+// Metodo: destroyApp
+// Descritor: (Z)V
+// Instrucoes: 1
+
+[   0] return

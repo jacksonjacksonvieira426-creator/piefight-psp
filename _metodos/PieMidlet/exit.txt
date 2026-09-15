@@ -1,0 +1,11 @@
+// Classe: PieMidlet
+// Metodo: exit
+// Descritor: ()V
+// Instrucoes: 6
+
+[   0] aload_0
+[   1] iconst_1
+[   2] invokevirtual org/eaves/piefight/PieMidlet.destroyApp
+[   3] aload_0
+[   4] invokevirtual javax/microedition/midlet/MIDlet.notifyDestroyed
+[   5] return

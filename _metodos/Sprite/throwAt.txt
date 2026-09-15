@@ -1,0 +1,9 @@
+// Classe: Sprite
+// Metodo: throwAt
+// Descritor: ()V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] iconst_4
+[   2] putfield Sprite._thrownAt
+[   3] return

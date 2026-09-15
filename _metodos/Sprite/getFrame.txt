@@ -1,0 +1,12 @@
+// Classe: Sprite
+// Metodo: getFrame
+// Descritor: ()I
+// Instrucoes: 7
+
+[   0] aload_0
+[   1] getfield Sprite._state
+[   2] aload_0
+[   3] getfield Sprite._currentState
+[   4] aaload
+[   5] invokevirtual org/eaves/piefight/State.current
+[   6] ireturn

@@ -1,0 +1,9 @@
+// Classe: PieMidlet
+// Metodo: resetScoreNext
+// Descritor: ()V
+// Instrucoes: 4
+
+[   0] aload_0
+[   1] iconst_0
+[   2] putfield PieMidlet._scoreNextAdded
+[   3] return

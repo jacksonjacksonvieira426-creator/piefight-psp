@@ -1,0 +1,19 @@
+// Classe: Animator
+// Metodo: reset
+// Descritor: ()V
+// Instrucoes: 14
+
+[   0] iconst_0
+[   1] istore_1
+[   2] goto 16
+[   3] aload_0
+[   4] getfield Animator._window
+[   5] iload_1
+[   6] aaload
+[   7] iconst_4
+[   8] invokevirtual org/eaves/piefight/Sprite.setState
+[   9] iinc 1
+[  10] iload_1
+[  11] getstatic Animator.IMAGES
+[  12] if_icmplt -17
+[  13] return

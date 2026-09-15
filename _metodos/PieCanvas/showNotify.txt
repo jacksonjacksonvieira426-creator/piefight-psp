@@ -1,0 +1,25 @@
+// Classe: PieCanvas
+// Metodo: showNotify
+// Descritor: ()V
+// Instrucoes: 20
+
+[   0] aload_0
+[   1] iconst_1
+[   2] putfield PieCanvas._running
+[   3] aload_0
+[   4] getfield PieCanvas._animate
+[   5] ifnonnull 30
+[   6] aload_0
+[   7] new 51
+[   8] dup
+[   9] invokespecial java/util/Timer.<init>
+[  10] putfield PieCanvas._animate
+[  11] aload_0
+[  12] getfield PieCanvas._animate
+[  13] aload_0
+[  14] getfield PieCanvas._sprites
+[  15] lconst_0
+[  16] getstatic PieCanvas.FRAME_DELAY
+[  17] i2l
+[  18] invokevirtual java/util/Timer.scheduleAtFixedRate
+[  19] return

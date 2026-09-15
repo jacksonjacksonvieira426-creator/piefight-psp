@@ -1,0 +1,51 @@
+// Classe: Score
+// Metodo: <init>
+// Descritor: (I)V
+// Instrucoes: 46
+
+[   0] aload_0
+[   1] ldc 1
+[   2] invokespecial javax/microedition/lcdui/Form.<init>
+[   3] aload_0
+[   4] new 3
+[   5] dup
+[   6] ldc 4
+[   7] iconst_4
+[   8] iconst_1
+[   9] invokespecial javax/microedition/lcdui/Command.<init>
+[  10] putfield Score._play
+[  11] aload_0
+[  12] new 3
+[  13] dup
+[  14] ldc 7
+[  15] bipush 7
+[  16] iconst_2
+[  17] invokespecial javax/microedition/lcdui/Command.<init>
+[  18] putfield Score._exit
+[  19] iload_1
+[  20] ifle 30
+[  21] aload_0
+[  22] new 9
+[  23] dup
+[  24] invokespecial java/lang/StringBuffer.<init>
+[  25] ldc 11
+[  26] invokevirtual java/lang/StringBuffer.append
+[  27] iload_1
+[  28] invokestatic java/lang/Integer.toString
+[  29] invokevirtual java/lang/StringBuffer.append
+[  30] invokevirtual java/lang/StringBuffer.toString
+[  31] invokevirtual javax/microedition/lcdui/Form.append
+[  32] pop
+[  33] aload_0
+[  34] ldc 16
+[  35] invokevirtual javax/microedition/lcdui/Form.append
+[  36] pop
+[  37] aload_0
+[  38] aload_0
+[  39] getfield Score._play
+[  40] invokevirtual javax/microedition/lcdui/Displayable.addCommand
+[  41] aload_0
+[  42] aload_0
+[  43] getfield Score._exit
+[  44] invokevirtual javax/microedition/lcdui/Displayable.addCommand
+[  45] return

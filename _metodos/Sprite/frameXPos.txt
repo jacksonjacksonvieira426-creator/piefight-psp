@@ -1,0 +1,10 @@
+// Classe: Sprite
+// Metodo: frameXPos
+// Descritor: (I)I
+// Instrucoes: 5
+
+[   0] aload_0
+[   1] getfield Sprite._frameX
+[   2] iload_1
+[   3] imul
+[   4] ireturn

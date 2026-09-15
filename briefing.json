@@ -1,0 +1,294 @@
+{
+  "jogo": "",
+  "classes": {
+    "Animator": [
+      {
+        "nome": "constructor",
+        "instrucoes": 123
+      },
+      {
+        "nome": "draw",
+        "instrucoes": 22
+      },
+      {
+        "nome": "getFrame",
+        "instrucoes": 6
+      },
+      {
+        "nome": "guardState",
+        "instrucoes": 17
+      },
+      {
+        "nome": "keyPressed",
+        "instrucoes": 57
+      },
+      {
+        "nome": "reset",
+        "instrucoes": 14
+      },
+      {
+        "nome": "run",
+        "instrucoes": 23
+      },
+      {
+        "nome": "spriteAction",
+        "instrucoes": 62
+      },
+      {
+        "nome": "targetsActive",
+        "instrucoes": 23
+      }
+    ],
+    "PieCanvas": [
+      {
+        "nome": "ammoAvailable",
+        "instrucoes": 13
+      },
+      {
+        "nome": "changeLevel",
+        "instrucoes": 209
+      },
+      {
+        "nome": "constructor",
+        "instrucoes": 139
+      },
+      {
+        "nome": "drawGame",
+        "instrucoes": 139
+      },
+      {
+        "nome": "drawScore",
+        "instrucoes": 194
+      },
+      {
+        "nome": "endScore",
+        "instrucoes": 4
+      },
+      {
+        "nome": "hideNotify",
+        "instrucoes": 4
+      },
+      {
+        "nome": "isRunning",
+        "instrucoes": 3
+      },
+      {
+        "nome": "keyPressed",
+        "instrucoes": 14
+      },
+      {
+        "nome": "maxAlive",
+        "instrucoes": 3
+      },
+      {
+        "nome": "nextLevel",
+        "instrucoes": 15
+      },
+      {
+        "nome": "paint",
+        "instrucoes": 43
+      },
+      {
+        "nome": "showNotify",
+        "instrucoes": 20
+      },
+      {
+        "nome": "targetHit",
+        "instrucoes": 13
+      },
+      {
+        "nome": "targetShown",
+        "instrucoes": 16
+      },
+      {
+        "nome": "targetsLeft",
+        "instrucoes": 7
+      }
+    ],
+    "PieMidlet": [
+      {
+        "nome": "commandAction",
+        "instrucoes": 39
+      },
+      {
+        "nome": "constructor",
+        "instrucoes": 61
+      },
+      {
+        "nome": "destroyApp",
+        "instrucoes": 1
+      },
+      {
+        "nome": "doScoreNext",
+        "instrucoes": 12
+      },
+      {
+        "nome": "exit",
+        "instrucoes": 6
+      },
+      {
+        "nome": "newPieCanvas",
+        "instrucoes": 10
+      },
+      {
+        "nome": "pauseApp",
+        "instrucoes": 1
+      },
+      {
+        "nome": "resetScoreNext",
+        "instrucoes": 4
+      },
+      {
+        "nome": "startApp",
+        "instrucoes": 68
+      }
+    ],
+    "Score": [
+      {
+        "nome": "constructor",
+        "instrucoes": 46
+      },
+      {
+        "nome": "getExitCommand",
+        "instrucoes": 3
+      },
+      {
+        "nome": "getPlayCommand",
+        "instrucoes": 3
+      }
+    ],
+    "Sprite": [
+      {
+        "nome": "action",
+        "instrucoes": 13
+      },
+      {
+        "nome": "animate",
+        "instrucoes": 24
+      },
+      {
+        "nome": "clear",
+        "instrucoes": 17
+      },
+      {
+        "nome": "constructor",
+        "instrucoes": 16
+      },
+      {
+        "nome": "draw",
+        "instrucoes": 83
+      },
+      {
+        "nome": "frameX",
+        "instrucoes": 4
+      },
+      {
+        "nome": "frameXPos",
+        "instrucoes": 5
+      },
+      {
+        "nome": "frameY",
+        "instrucoes": 4
+      },
+      {
+        "nome": "frameYPos",
+        "instrucoes": 3
+      },
+      {
+        "nome": "getFrame",
+        "instrucoes": 7
+      },
+      {
+        "nome": "getState",
+        "instrucoes": 3
+      },
+      {
+        "nome": "nextState",
+        "instrucoes": 18
+      },
+      {
+        "nome": "setListener",
+        "instrucoes": 4
+      },
+      {
+        "nome": "setState",
+        "instrucoes": 13
+      },
+      {
+        "nome": "setX",
+        "instrucoes": 4
+      },
+      {
+        "nome": "setY",
+        "instrucoes": 4
+      },
+      {
+        "nome": "start",
+        "instrucoes": 76
+      },
+      {
+        "nome": "throwAt",
+        "instrucoes": 4
+      }
+    ],
+    "SpriteEvent": [
+      {
+        "nome": "constructor",
+        "instrucoes": 6
+      },
+      {
+        "nome": "getEvent",
+        "instrucoes": 3
+      }
+    ],
+    "SpriteListener": [],
+    "State": [
+      {
+        "nome": "atEnd",
+        "instrucoes": 9
+      },
+      {
+        "nome": "constructor",
+        "instrucoes": 18
+      },
+      {
+        "nome": "current",
+        "instrucoes": 3
+      },
+      {
+        "nome": "init",
+        "instrucoes": 5
+      },
+      {
+        "nome": "next",
+        "instrucoes": 27
+      },
+      {
+        "nome": "prev",
+        "instrucoes": 27
+      }
+    ]
+  },
+  "metodos_criticos": [
+    {
+      "classe": "PieCanvas",
+      "metodo": "keyPressed",
+      "instrucoes": 14
+    },
+    {
+      "classe": "Animator",
+      "metodo": "run",
+      "instrucoes": 23
+    },
+    {
+      "classe": "PieCanvas",
+      "metodo": "paint",
+      "instrucoes": 43
+    },
+    {
+      "classe": "Animator",
+      "metodo": "keyPressed",
+      "instrucoes": 57
+    }
+  ]
+}

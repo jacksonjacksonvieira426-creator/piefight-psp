@@ -1,0 +1,128 @@
+// Classe: Animator
+// Metodo: <init>
+// Descritor: (Lorg/eaves/piefight/PieCanvas;IILjavax/microedition/lcdui/Display;)V
+// Instrucoes: 123
+
+[   0] aload_0
+[   1] invokespecial java/util/TimerTask.<init>
+[   2] aload_0
+[   3] new 2
+[   4] dup
+[   5] new 3
+[   6] dup
+[   7] invokespecial java/util/Date.<init>
+[   8] invokevirtual java/util/Date.getTime
+[   9] invokespecial java/util/Random.<init>
+[  10] putfield Animator._r
+[  11] aload_0
+[  12] aload_1
+[  13] putfield Animator._parent
+[  14] aload_0
+[  15] aload 4
+[  16] putfield Animator._sound
+[  17] aload_0
+[  18] iload_2
+[  19] putfield Animator._width
+[  20] aload_0
+[  21] iload_3
+[  22] putfield Animator._height
+[  23] ldc 12
+[  24] invokestatic javax/microedition/lcdui/Image.createImage
+[  25] astore 5
+[  26] ldc 14
+[  27] invokestatic javax/microedition/lcdui/Image.createImage
+[  28] astore 6
+[  29] goto 14
+[  30] astore 7
+[  31] getstatic System.out
+[  32] ldc 17
+[  33] invokevirtual java/io/PrintStream.println
+[  34] return
+[  35] aload_0
+[  36] getstatic Animator.IMAGES
+[  37] anewarray 20
+[  38] putfield Animator._window
+[  39] iconst_0
+[  40] istore 7
+[  41] goto 159
+[  42] aload_0
+[  43] getfield Animator._r
+[  44] invokevirtual java/util/Random.nextInt
+[  45] bipush 100
+[  46] irem
+[  47] invokestatic java/lang/Math.abs
+[  48] bipush 10
+[  49] if_icmpge 22
+[  50] aload_0
+[  51] getfield Animator._window
+[  52] iload 7
+[  53] new 20
+[  54] dup
+[  55] aload 6
+[  56] invokespecial org/eaves/piefight/Sprite.<init>
+[  57] aastore
+[  58] goto 19
+[  59] aload_0
+[  60] getfield Animator._window
+[  61] iload 7
+[  62] new 20
+[  63] dup
+[  64] aload 5
+[  65] invokespecial org/eaves/piefight/Sprite.<init>
+[  66] aastore
+[  67] aload_0
+[  68] getfield Animator._window
+[  69] iload 7
+[  70] aaload
+[  71] getstatic Animator.X
+[  72] iload 7
+[  73] iconst_3
+[  74] irem
+[  75] bipush 35
+[  76] imul
+[  77] iadd
+[  78] invokevirtual org/eaves/piefight/Sprite.setX
+[  79] aload_0
+[  80] getfield Animator._window
+[  81] iload 7
+[  82] aaload
+[  83] getstatic Animator.Y
+[  84] iload 7
+[  85] iconst_3
+[  86] idiv
+[  87] bipush 32
+[  88] imul
+[  89] iadd
+[  90] invokevirtual org/eaves/piefight/Sprite.setY
+[  91] aload_0
+[  92] getfield Animator._window
+[  93] iload 7
+[  94] aaload
+[  95] getstatic Animator.FRAME_WIDTH
+[  96] invokevirtual org/eaves/piefight/Sprite.frameX
+[  97] aload_0
+[  98] getfield Animator._window
+[  99] iload 7
+[ 100] aaload
+[ 101] getstatic Animator.FRAME_HEIGHT
+[ 102] invokevirtual org/eaves/piefight/Sprite.frameY
+[ 103] aload_0
+[ 104] getfield Animator._window
+[ 105] iload 7
+[ 106] aaload
+[ 107] aload_0
+[ 108] invokevirtual org/eaves/piefight/Sprite.setListener
+[ 109] aload_0
+[ 110] getfield Animator._window
+[ 111] iload 7
+[ 112] aaload
+[ 113] invokevirtual org/eaves/piefight/Sprite.start
+[ 114] ldc2_w 35
+[ 115] invokestatic java/lang/Thread.sleep
+[ 116] goto 5
+[ 117] astore 8
+[ 118] iinc 7
+[ 119] iload 7
+[ 120] getstatic Animator.IMAGES
+[ 121] if_icmplt -161
+[ 122] return

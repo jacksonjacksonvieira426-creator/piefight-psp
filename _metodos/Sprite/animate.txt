@@ -1,0 +1,29 @@
+// Classe: Sprite
+// Metodo: animate
+// Descritor: ()V
+// Instrucoes: 24
+
+[   0] aload_0
+[   1] getfield Sprite._painted
+[   2] ifne 4
+[   3] return
+[   4] aload_0
+[   5] getfield Sprite._state
+[   6] aload_0
+[   7] getfield Sprite._currentState
+[   8] aaload
+[   9] invokevirtual org/eaves/piefight/State.next
+[  10] pop
+[  11] aload_0
+[  12] getfield Sprite._thrownAt
+[  13] ifle 13
+[  14] aload_0
+[  15] dup
+[  16] getfield Sprite._thrownAt
+[  17] iconst_1
+[  18] isub
+[  19] putfield Sprite._thrownAt
+[  20] aload_0
+[  21] iconst_0
+[  22] putfield Sprite._painted
+[  23] return

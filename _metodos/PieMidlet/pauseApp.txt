@@ -1,0 +1,6 @@
+// Classe: PieMidlet
+// Metodo: pauseApp
+// Descritor: ()V
+// Instrucoes: 1
+
+[   0] return

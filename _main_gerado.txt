@@ -1,0 +1,33 @@
+// Analise:
+//   MIDlet:      PieMidlet
+//   Canvas:      Animator
+//   Game loop:   None
+//   Personagens: []
+//   Canvas princ: None
+
+// ============================================
+// MAIN AUTO-GERADO pela Fabrica V8
+// ============================================
+
+int main(void) {
+    j2me_gfx_init();
+    j2me_input_init();
+    j2me_random_init();
+
+
+    // Game loop
+    while (1) {
+        j2me_input_update();
+        if (j2me_input_should_quit()) break;
+
+        j2me_gfx_begin_frame();
+        j2me_gfx_clear(0x101020);
+
+
+        j2me_gfx_flip();
+    }
+
+    j2me_gfx_shutdown();
+    sceKernelExitGame();
+    return 0;
+}

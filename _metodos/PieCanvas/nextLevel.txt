@@ -1,0 +1,20 @@
+// Classe: PieCanvas
+// Metodo: nextLevel
+// Descritor: ()V
+// Instrucoes: 15
+
+[   0] aload_0
+[   1] dup
+[   2] getfield PieCanvas._currentLevel
+[   3] iconst_1
+[   4] iadd
+[   5] putfield PieCanvas._currentLevel
+[   6] aload_0
+[   7] getfield PieCanvas._sprites
+[   8] invokevirtual org/eaves/piefight/Animator.reset
+[   9] aload_0
+[  10] aload_0
+[  11] getfield PieCanvas._currentLevel
+[  12] invokevirtual org/eaves/piefight/PieCanvas.changeLevel
+[  13] invokestatic java/lang/System.gc
+[  14] return

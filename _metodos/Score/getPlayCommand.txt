@@ -1,0 +1,8 @@
+// Classe: Score
+// Metodo: getPlayCommand
+// Descritor: ()Ljavax/microedition/lcdui/Command;
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield Score._play
+[   2] areturn

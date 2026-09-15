@@ -1,0 +1,21 @@
+// Classe: PieCanvas
+// Metodo: targetShown
+// Descritor: ()V
+// Instrucoes: 16
+
+[   0] aload_0
+[   1] dup
+[   2] getfield PieCanvas._targetsLeft
+[   3] iconst_1
+[   4] isub
+[   5] putfield PieCanvas._targetsLeft
+[   6] aload_0
+[   7] getfield PieCanvas._targetsLeft
+[   8] ifge 13
+[   9] aload_0
+[  10] iconst_0
+[  11] putfield PieCanvas._targetsLeft
+[  12] aload_0
+[  13] iconst_1
+[  14] putfield PieCanvas._endLevel
+[  15] return

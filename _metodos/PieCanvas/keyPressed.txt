@@ -1,0 +1,19 @@
+// Classe: PieCanvas
+// Metodo: keyPressed
+// Descritor: (I)V
+// Instrucoes: 14
+
+[   0] iload_1
+[   1] bipush 48
+[   2] isub
+[   3] istore_2
+[   4] iload_2
+[   5] ifle 17
+[   6] iload_2
+[   7] bipush 7
+[   8] if_icmpge 11
+[   9] aload_0
+[  10] getfield PieCanvas._sprites
+[  11] iload_2
+[  12] invokevirtual org/eaves/piefight/Animator.keyPressed
+[  13] return

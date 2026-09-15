@@ -1,0 +1,12 @@
+// Classe: PieCanvas
+// Metodo: targetsLeft
+// Descritor: ()Z
+// Instrucoes: 7
+
+[   0] aload_0
+[   1] getfield PieCanvas._targetsLeft
+[   2] iflt 7
+[   3] iconst_1
+[   4] goto 4
+[   5] iconst_0
+[   6] ireturn

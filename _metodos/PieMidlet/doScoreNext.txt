@@ -1,0 +1,17 @@
+// Classe: PieMidlet
+// Metodo: doScoreNext
+// Descritor: ()V
+// Instrucoes: 12
+
+[   0] aload_0
+[   1] getfield PieMidlet._scoreNextAdded
+[   2] ifne 19
+[   3] aload_0
+[   4] iconst_1
+[   5] putfield PieMidlet._scoreNextAdded
+[   6] aload_0
+[   7] getfield PieMidlet._pie
+[   8] aload_0
+[   9] getfield PieMidlet._scoreNext
+[  10] invokevirtual javax/microedition/lcdui/Displayable.addCommand
+[  11] return

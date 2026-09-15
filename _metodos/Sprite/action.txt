@@ -1,0 +1,18 @@
+// Classe: Sprite
+// Metodo: action
+// Descritor: (I)V
+// Instrucoes: 13
+
+[   0] aload_0
+[   1] getfield Sprite._listener
+[   2] ifnonnull 4
+[   3] return
+[   4] aload_0
+[   5] getfield Sprite._listener
+[   6] aload_0
+[   7] new 14
+[   8] dup
+[   9] iload_1
+[  10] invokespecial org/eaves/piefight/SpriteEvent.<init>
+[  11] invokeinterface org/eaves/piefight/SpriteListener.spriteAction
+[  12] return

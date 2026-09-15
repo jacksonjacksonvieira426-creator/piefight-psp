@@ -1,0 +1,8 @@
+// Classe: PieCanvas
+// Metodo: isRunning
+// Descritor: ()Z
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield PieCanvas._running
+[   2] ireturn

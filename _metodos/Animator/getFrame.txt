@@ -1,0 +1,11 @@
+// Classe: Animator
+// Metodo: getFrame
+// Descritor: ()I
+// Instrucoes: 6
+
+[   0] aload_0
+[   1] getfield Animator._window
+[   2] iconst_0
+[   3] aaload
+[   4] invokevirtual org/eaves/piefight/Sprite.getFrame
+[   5] ireturn

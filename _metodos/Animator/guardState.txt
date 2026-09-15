@@ -1,0 +1,22 @@
+// Classe: Animator
+// Metodo: guardState
+// Descritor: (Lorg/eaves/piefight/Sprite;)V
+// Instrucoes: 17
+
+[   0] aload_0
+[   1] invokevirtual org/eaves/piefight/Animator.targetsActive
+[   2] aload_0
+[   3] getfield Animator._parent
+[   4] invokevirtual org/eaves/piefight/PieCanvas.maxAlive
+[   5] if_icmpge 25
+[   6] aload_0
+[   7] getfield Animator._parent
+[   8] invokevirtual org/eaves/piefight/PieCanvas.targetsLeft
+[   9] ifeq 15
+[  10] aload_1
+[  11] iconst_0
+[  12] invokevirtual org/eaves/piefight/Sprite.setState
+[  13] aload_0
+[  14] getfield Animator._parent
+[  15] invokevirtual org/eaves/piefight/PieCanvas.targetShown
+[  16] return

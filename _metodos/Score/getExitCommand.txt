@@ -1,0 +1,8 @@
+// Classe: Score
+// Metodo: getExitCommand
+// Descritor: ()Ljavax/microedition/lcdui/Command;
+// Instrucoes: 3
+
+[   0] aload_0
+[   1] getfield Score._exit
+[   2] areturn
