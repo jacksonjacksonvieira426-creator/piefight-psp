@@ -57,6 +57,13 @@ typedef struct SpriteEvent_s SpriteEvent;
 typedef struct SpriteListener_s SpriteListener;
 typedef struct State_s State;
 
+// ===== STUBS (auto-fix) =====
+void j2me_gc(void) { }
+int  PieCanvas_isRunning(void* self) { (void)self; return 1; }
+void Sprite_animate(void* self) { (void)self; }
+int  Animator_IMAGES = 5;
+
+
 // ============================================
 // ESTRUTURAS DE DADOS (traduzidas do J2ME)
 // ============================================
