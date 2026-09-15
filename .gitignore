@@ -1,0 +1,5 @@
+*.jar
+*.o
+*.elf
+*.pbp
+_extraido/

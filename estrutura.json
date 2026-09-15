@@ -1,0 +1,4418 @@
+{
+  "jar": "piefight.jar",
+  "nome_projeto": "piefight",
+  "midlet": "PieMidlet",
+  "canvas": "Animator",
+  "classes": [
+    {
+      "arquivo": "org/eaves/piefight/Animator.class",
+      "nome": "Animator",
+      "super": "Canvas",
+      "campos": [
+        {
+          "nome": "FRAME_WIDTH",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "FRAME_HEIGHT",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "X",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "Y",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "IMAGES",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_window",
+          "desc": "[Lorg/eaves/piefight/Sprite;",
+          "tipo_c": "Sprite**"
+        },
+        {
+          "nome": "_parent",
+          "desc": "Lorg/eaves/piefight/PieCanvas;",
+          "tipo_c": "PieCanvas*"
+        },
+        {
+          "nome": "_sound",
+          "desc": "Ljavax/microedition/lcdui/Display;",
+          "tipo_c": "Display*"
+        },
+        {
+          "nome": "_width",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_height",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_r",
+          "desc": "Ljava/util/Random;",
+          "tipo_c": "Random*"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "(Lorg/eaves/piefight/PieCanvas;IILjavax/microedition/lcdui/Display;)V",
+          "tipo_ret": "void",
+          "n_instr": 123,
+          "apis": {
+            "java/util/TimerTask.<init>": 1,
+            "java/util/Date.<init>": 1,
+            "java/util/Date.getTime": 1,
+            "java/util/Random.<init>": 1,
+            "javax/microedition/lcdui/Image.createImage": 2,
+            "java/io/PrintStream.println": 1,
+            "java/util/Random.nextInt": 1,
+            "java/lang/Math.abs": 1,
+            "java/lang/Thread.sleep": 1
+          },
+          "constantes": [
+            [
+              39,
+              0
+            ],
+            [
+              45,
+              100
+            ],
+            [
+              48,
+              10
+            ],
+            [
+              73,
+              3
+            ],
+            [
+              75,
+              35
+            ],
+            [
+              85,
+              3
+            ],
+            [
+              87,
+              32
+            ]
+          ],
+          "chamadas": [
+            [
+              1,
+              "java/util/TimerTask.<init>"
+            ],
+            [
+              7,
+              "java/util/Date.<init>"
+            ],
+            [
+              8,
+              "java/util/Date.getTime"
+            ],
+            [
+              9,
+              "java/util/Random.<init>"
+            ],
+            [
+              24,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              27,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              33,
+              "java/io/PrintStream.println"
+            ],
+            [
+              44,
+              "java/util/Random.nextInt"
+            ],
+            [
+              47,
+              "java/lang/Math.abs"
+            ],
+            [
+              115,
+              "java/lang/Thread.sleep"
+            ]
+          ],
+          "fields": [
+            [
+              10,
+              "putfield",
+              "Animator._r"
+            ],
+            [
+              13,
+              "putfield",
+              "Animator._parent"
+            ],
+            [
+              16,
+              "putfield",
+              "Animator._sound"
+            ],
+            [
+              19,
+              "putfield",
+              "Animator._width"
+            ],
+            [
+              22,
+              "putfield",
+              "Animator._height"
+            ],
+            [
+              31,
+              "getstatic",
+              "System.out"
+            ],
+            [
+              36,
+              "getstatic",
+              "Animator.IMAGES"
+            ],
+            [
+              38,
+              "putfield",
+              "Animator._window"
+            ],
+            [
+              43,
+              "getfield",
+              "Animator._r"
+            ],
+            [
+              51,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              60,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              68,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              71,
+              "getstatic",
+              "Animator.X"
+            ],
+            [
+              80,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              83,
+              "getstatic",
+              "Animator.Y"
+            ],
+            [
+              92,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              95,
+              "getstatic",
+              "Animator.FRAME_WIDTH"
+            ],
+            [
+              98,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              101,
+              "getstatic",
+              "Animator.FRAME_HEIGHT"
+            ],
+            [
+              104,
+              "getfield",
+              "Animator._window"
+            ]
+          ]
+        },
+        {
+          "nome": "guardState",
+          "desc": "(Lorg/eaves/piefight/Sprite;)V",
+          "tipo_ret": "void",
+          "n_instr": 17,
+          "apis": {},
+          "constantes": [
+            [
+              11,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              3,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              7,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              14,
+              "getfield",
+              "Animator._parent"
+            ]
+          ]
+        },
+        {
+          "nome": "reset",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 14,
+          "apis": {},
+          "constantes": [
+            [
+              0,
+              0
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              4,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              11,
+              "getstatic",
+              "Animator.IMAGES"
+            ]
+          ]
+        },
+        {
+          "nome": "spriteAction",
+          "desc": "(Lorg/eaves/piefight/Sprite;Lorg/eaves/piefight/SpriteEvent;)V",
+          "tipo_ret": "void",
+          "n_instr": 62,
+          "apis": {
+            "java/util/Random.nextInt": 2,
+            "java/lang/Math.abs": 2
+          },
+          "constantes": [
+            [
+              13,
+              100
+            ],
+            [
+              17,
+              5
+            ],
+            [
+              20,
+              3
+            ],
+            [
+              23,
+              95
+            ],
+            [
+              33,
+              100
+            ],
+            [
+              37,
+              10
+            ],
+            [
+              44,
+              4
+            ],
+            [
+              48,
+              4
+            ],
+            [
+              52,
+              2
+            ],
+            [
+              56,
+              3
+            ]
+          ],
+          "chamadas": [
+            [
+              11,
+              "java/util/Random.nextInt"
+            ],
+            [
+              12,
+              "java/lang/Math.abs"
+            ],
+            [
+              31,
+              "java/util/Random.nextInt"
+            ],
+            [
+              32,
+              "java/lang/Math.abs"
+            ]
+          ],
+          "fields": [
+            [
+              2,
+              "getstatic",
+              "SpriteEvent.END_STATE"
+            ],
+            [
+              10,
+              "getfield",
+              "Animator._r"
+            ],
+            [
+              30,
+              "getfield",
+              "Animator._r"
+            ]
+          ]
+        },
+        {
+          "nome": "keyPressed",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 57,
+          "apis": {},
+          "constantes": [
+            [
+              6,
+              1
+            ],
+            [
+              21,
+              1
+            ],
+            [
+              30,
+              5
+            ],
+            [
+              36,
+              2
+            ],
+            [
+              42,
+              6
+            ],
+            [
+              45,
+              3
+            ],
+            [
+              48,
+              4
+            ],
+            [
+              54,
+              7
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              10,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              15,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              24,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              27,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              39,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              51,
+              "getfield",
+              "Animator._window"
+            ]
+          ]
+        },
+        {
+          "nome": "draw",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;)V",
+          "tipo_ret": "void",
+          "n_instr": 22,
+          "apis": {
+            "javax/microedition/lcdui/Graphics.setClip": 1
+          },
+          "constantes": [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "chamadas": [
+            [
+              10,
+              "javax/microedition/lcdui/Graphics.setClip"
+            ]
+          ],
+          "fields": [
+            [
+              7,
+              "getfield",
+              "Animator._width"
+            ],
+            [
+              9,
+              "getfield",
+              "Animator._height"
+            ],
+            [
+              12,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              19,
+              "getstatic",
+              "Animator.IMAGES"
+            ]
+          ]
+        },
+        {
+          "nome": "getFrame",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 6,
+          "apis": {},
+          "constantes": [
+            [
+              2,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Animator._window"
+            ]
+          ]
+        },
+        {
+          "nome": "targetsActive",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 23,
+          "apis": {},
+          "constantes": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              14,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              6,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              19,
+              "getstatic",
+              "Animator.IMAGES"
+            ]
+          ]
+        },
+        {
+          "nome": "run",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 23,
+          "apis": {
+            "javax/microedition/lcdui/Canvas.repaint": 1,
+            "javax/microedition/lcdui/Canvas.serviceRepaints": 1
+          },
+          "constantes": [
+            [
+              4,
+              0
+            ]
+          ],
+          "chamadas": [
+            [
+              18,
+              "javax/microedition/lcdui/Canvas.repaint"
+            ],
+            [
+              21,
+              "javax/microedition/lcdui/Canvas.serviceRepaints"
+            ]
+          ],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              8,
+              "getfield",
+              "Animator._window"
+            ],
+            [
+              14,
+              "getstatic",
+              "Animator.IMAGES"
+            ],
+            [
+              17,
+              "getfield",
+              "Animator._parent"
+            ],
+            [
+              20,
+              "getfield",
+              "Animator._parent"
+            ]
+          ]
+        },
+        {
+          "nome": "<clinit>",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 11,
+          "apis": {},
+          "constantes": [
+            [
+              0,
+              30
+            ],
+            [
+              2,
+              25
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "putstatic",
+              "Animator.FRAME_WIDTH"
+            ],
+            [
+              3,
+              "putstatic",
+              "Animator.FRAME_HEIGHT"
+            ],
+            [
+              5,
+              "putstatic",
+              "Animator.X"
+            ],
+            [
+              7,
+              "putstatic",
+              "Animator.Y"
+            ],
+            [
+              9,
+              "putstatic",
+              "Animator.IMAGES"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "java/util/TimerTask.<init>": 1,
+        "java/util/Date.<init>": 1,
+        "java/util/Date.getTime": 1,
+        "java/util/Random.<init>": 1,
+        "javax/microedition/lcdui/Image.createImage": 2,
+        "java/io/PrintStream.println": 1,
+        "java/util/Random.nextInt": 3,
+        "java/lang/Math.abs": 3,
+        "java/lang/Thread.sleep": 1,
+        "javax/microedition/lcdui/Graphics.setClip": 1,
+        "javax/microedition/lcdui/Canvas.repaint": 1,
+        "javax/microedition/lcdui/Canvas.serviceRepaints": 1
+      },
+      "padroes": [
+        "CANVAS",
+        "TEM_INPUT",
+        "TEM_RUN",
+        "USA_TIMER",
+        "USA_IMAGE"
+      ]
+    },
+    {
+      "arquivo": "org/eaves/piefight/PieCanvas.class",
+      "nome": "PieCanvas",
+      "super": "Canvas",
+      "campos": [
+        {
+          "nome": "FRAME_WIDTH",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "FRAME_HEIGHT",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "FRAME_DELAY",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "SUCK",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "OK",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "RULE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_mfont",
+          "desc": "Ljavax/microedition/lcdui/Font;",
+          "tipo_c": "Font*"
+        },
+        {
+          "nome": "_nfont",
+          "desc": "Ljavax/microedition/lcdui/Font;",
+          "tipo_c": "Font*"
+        },
+        {
+          "nome": "_mfontHeight",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_offscreen",
+          "desc": "Ljavax/microedition/lcdui/Image;",
+          "tipo_c": "Image*"
+        },
+        {
+          "nome": "_youSuck",
+          "desc": "Ljavax/microedition/lcdui/Image;",
+          "tipo_c": "Image*"
+        },
+        {
+          "nome": "_youRule",
+          "desc": "Ljavax/microedition/lcdui/Image;",
+          "tipo_c": "Image*"
+        },
+        {
+          "nome": "_youOK",
+          "desc": "Ljavax/microedition/lcdui/Image;",
+          "tipo_c": "Image*"
+        },
+        {
+          "nome": "_animate",
+          "desc": "Ljava/util/Timer;",
+          "tipo_c": "Timer*"
+        },
+        {
+          "nome": "_sprites",
+          "desc": "Lorg/eaves/piefight/Animator;",
+          "tipo_c": "Animator*"
+        },
+        {
+          "nome": "_currentFrame",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_maxFrame",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_width",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_height",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_running",
+          "desc": "Z",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "MAX_AMMO",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_pieCount",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ammoFrameCount",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ammoDisplayX",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ammoDisplayY",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ammoDisplayDelta",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_targetsHitX",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_targetsLeftX",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_infoLineY",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_targetsHit",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_targetsLeft",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_startTargets",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_endLevel",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_currentLevel",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_hitPercent",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_maxAlive",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ammoRecoveryDelta",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_parent",
+          "desc": "Lorg/eaves/piefight/PieMidlet;",
+          "tipo_c": "PieMidlet*"
+        },
+        {
+          "nome": "_display",
+          "desc": "Ljavax/microedition/lcdui/Display;",
+          "tipo_c": "Display*"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "(Lorg/eaves/piefight/PieMidlet;)V",
+          "tipo_ret": "void",
+          "n_instr": 139,
+          "apis": {
+            "javax/microedition/lcdui/Canvas.<init>": 1,
+            "javax/microedition/lcdui/Display.getDisplay": 1,
+            "javax/microedition/lcdui/Canvas.getWidth": 1,
+            "javax/microedition/lcdui/Canvas.getHeight": 1,
+            "javax/microedition/lcdui/Image.createImage": 4,
+            "javax/microedition/lcdui/Canvas.isDoubleBuffered": 1,
+            "javax/microedition/midlet/MIDlet.getAppProperty": 1,
+            "javax/microedition/lcdui/Font.getFont": 1,
+            "javax/microedition/lcdui/Font.getHeight": 1,
+            "javax/microedition/lcdui/Font.getDefaultFont": 1
+          },
+          "constantes": [
+            [
+              3,
+              0
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              13,
+              0
+            ],
+            [
+              16,
+              0
+            ],
+            [
+              84,
+              10
+            ],
+            [
+              88,
+              0
+            ],
+            [
+              89,
+              0
+            ],
+            [
+              90,
+              8
+            ],
+            [
+              97,
+              1
+            ],
+            [
+              106,
+              10
+            ],
+            [
+              110,
+              0
+            ],
+            [
+              113,
+              10
+            ],
+            [
+              116,
+              0
+            ],
+            [
+              121,
+              2
+            ],
+            [
+              123,
+              20
+            ],
+            [
+              129,
+              2
+            ],
+            [
+              135,
+              5
+            ]
+          ],
+          "chamadas": [
+            [
+              1,
+              "javax/microedition/lcdui/Canvas.<init>"
+            ],
+            [
+              24,
+              "javax/microedition/lcdui/Display.getDisplay"
+            ],
+            [
+              28,
+              "javax/microedition/lcdui/Canvas.getWidth"
+            ],
+            [
+              32,
+              "javax/microedition/lcdui/Canvas.getHeight"
+            ],
+            [
+              36,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              40,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              44,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              49,
+              "javax/microedition/lcdui/Canvas.isDoubleBuffered"
+            ],
+            [
+              56,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              73,
+              "javax/microedition/midlet/MIDlet.getAppProperty"
+            ],
+            [
+              91,
+              "javax/microedition/lcdui/Font.getFont"
+            ],
+            [
+              96,
+              "javax/microedition/lcdui/Font.getHeight"
+            ],
+            [
+              101,
+              "javax/microedition/lcdui/Font.getDefaultFont"
+            ]
+          ],
+          "fields": [
+            [
+              4,
+              "putfield",
+              "PieCanvas._running"
+            ],
+            [
+              7,
+              "putfield",
+              "PieCanvas.MAX_AMMO"
+            ],
+            [
+              10,
+              "getfield",
+              "PieCanvas.MAX_AMMO"
+            ],
+            [
+              11,
+              "putfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              14,
+              "putfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              17,
+              "putfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              20,
+              "putfield",
+              "PieCanvas._parent"
+            ],
+            [
+              23,
+              "getfield",
+              "PieCanvas._parent"
+            ],
+            [
+              25,
+              "putfield",
+              "PieCanvas._display"
+            ],
+            [
+              29,
+              "putfield",
+              "PieCanvas._width"
+            ],
+            [
+              33,
+              "putfield",
+              "PieCanvas._height"
+            ],
+            [
+              37,
+              "putfield",
+              "PieCanvas._youRule"
+            ],
+            [
+              41,
+              "putfield",
+              "PieCanvas._youSuck"
+            ],
+            [
+              45,
+              "putfield",
+              "PieCanvas._youOK"
+            ],
+            [
+              53,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              55,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              57,
+              "putfield",
+              "PieCanvas._offscreen"
+            ],
+            [
+              63,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              65,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              67,
+              "getfield",
+              "PieCanvas._display"
+            ]
+          ]
+        },
+        {
+          "nome": "changeLevel",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 209,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              0
+            ],
+            [
+              11,
+              20
+            ],
+            [
+              16,
+              8
+            ],
+            [
+              19,
+              60
+            ],
+            [
+              22,
+              1
+            ],
+            [
+              27,
+              30
+            ],
+            [
+              32,
+              10
+            ],
+            [
+              35,
+              75
+            ],
+            [
+              38,
+              1
+            ],
+            [
+              43,
+              40
+            ],
+            [
+              48,
+              7
+            ],
+            [
+              51,
+              60
+            ],
+            [
+              54,
+              2
+            ],
+            [
+              59,
+              40
+            ],
+            [
+              64,
+              9
+            ],
+            [
+              67,
+              60
+            ],
+            [
+              70,
+              2
+            ],
+            [
+              75,
+              40
+            ],
+            [
+              80,
+              9
+            ],
+            [
+              83,
+              75
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              5,
+              "getfield",
+              "PieCanvas.MAX_AMMO"
+            ],
+            [
+              6,
+              "putfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              13,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              14,
+              "putfield",
+              "PieCanvas._startTargets"
+            ],
+            [
+              17,
+              "putfield",
+              "PieCanvas._ammoRecoveryDelta"
+            ],
+            [
+              20,
+              "putfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              23,
+              "putfield",
+              "PieCanvas._maxAlive"
+            ],
+            [
+              29,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              30,
+              "putfield",
+              "PieCanvas._startTargets"
+            ],
+            [
+              33,
+              "putfield",
+              "PieCanvas._ammoRecoveryDelta"
+            ],
+            [
+              36,
+              "putfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              39,
+              "putfield",
+              "PieCanvas._maxAlive"
+            ],
+            [
+              45,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              46,
+              "putfield",
+              "PieCanvas._startTargets"
+            ],
+            [
+              49,
+              "putfield",
+              "PieCanvas._ammoRecoveryDelta"
+            ],
+            [
+              52,
+              "putfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              55,
+              "putfield",
+              "PieCanvas._maxAlive"
+            ],
+            [
+              61,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              62,
+              "putfield",
+              "PieCanvas._startTargets"
+            ]
+          ]
+        },
+        {
+          "nome": "keyPressed",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 14,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              48
+            ],
+            [
+              7,
+              7
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              10,
+              "getfield",
+              "PieCanvas._sprites"
+            ]
+          ]
+        },
+        {
+          "nome": "ammoAvailable",
+          "desc": "()Z",
+          "tipo_ret": "int",
+          "n_instr": 13,
+          "apis": {},
+          "constantes": [
+            [
+              6,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              11,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              5,
+              "getfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              8,
+              "putfield",
+              "PieCanvas._pieCount"
+            ]
+          ]
+        },
+        {
+          "nome": "showNotify",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 20,
+          "apis": {
+            "java/util/Timer.<init>": 1,
+            "java/util/Timer.scheduleAtFixedRate": 1
+          },
+          "constantes": [
+            [
+              1,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              9,
+              "java/util/Timer.<init>"
+            ],
+            [
+              18,
+              "java/util/Timer.scheduleAtFixedRate"
+            ]
+          ],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "PieCanvas._running"
+            ],
+            [
+              4,
+              "getfield",
+              "PieCanvas._animate"
+            ],
+            [
+              10,
+              "putfield",
+              "PieCanvas._animate"
+            ],
+            [
+              12,
+              "getfield",
+              "PieCanvas._animate"
+            ],
+            [
+              14,
+              "getfield",
+              "PieCanvas._sprites"
+            ],
+            [
+              16,
+              "getstatic",
+              "PieCanvas.FRAME_DELAY"
+            ]
+          ]
+        },
+        {
+          "nome": "hideNotify",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "PieCanvas._running"
+            ]
+          ]
+        },
+        {
+          "nome": "isRunning",
+          "desc": "()Z",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieCanvas._running"
+            ]
+          ]
+        },
+        {
+          "nome": "maxAlive",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieCanvas._maxAlive"
+            ]
+          ]
+        },
+        {
+          "nome": "targetShown",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 16,
+          "apis": {},
+          "constantes": [
+            [
+              3,
+              1
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              13,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              5,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              7,
+              "getfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              11,
+              "putfield",
+              "PieCanvas._targetsLeft"
+            ],
+            [
+              14,
+              "putfield",
+              "PieCanvas._endLevel"
+            ]
+          ]
+        },
+        {
+          "nome": "targetsLeft",
+          "desc": "()Z",
+          "tipo_ret": "int",
+          "n_instr": 7,
+          "apis": {},
+          "constantes": [
+            [
+              3,
+              1
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieCanvas._targetsLeft"
+            ]
+          ]
+        },
+        {
+          "nome": "nextLevel",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 15,
+          "apis": {
+            "java/lang/System.gc": 1
+          },
+          "constantes": [
+            [
+              3,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              13,
+              "java/lang/System.gc"
+            ]
+          ],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "PieCanvas._currentLevel"
+            ],
+            [
+              5,
+              "putfield",
+              "PieCanvas._currentLevel"
+            ],
+            [
+              7,
+              "getfield",
+              "PieCanvas._sprites"
+            ],
+            [
+              11,
+              "getfield",
+              "PieCanvas._currentLevel"
+            ]
+          ]
+        },
+        {
+          "nome": "targetHit",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 13,
+          "apis": {},
+          "constantes": [
+            [
+              3,
+              1
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              5,
+              "putfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              8,
+              "getfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              11,
+              "putfield",
+              "PieCanvas._ammoFrameCount"
+            ]
+          ]
+        },
+        {
+          "nome": "drawScore",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;)V",
+          "tipo_ret": "void",
+          "n_instr": 194,
+          "apis": {
+            "javax/microedition/lcdui/Graphics.setColor": 2,
+            "javax/microedition/lcdui/Graphics.fillRect": 1,
+            "javax/microedition/lcdui/Graphics.setFont": 1,
+            "java/lang/StringBuffer.<init>": 5,
+            "java/lang/StringBuffer.append": 10,
+            "java/lang/StringBuffer.toString": 5,
+            "javax/microedition/lcdui/Graphics.drawString": 6,
+            "javax/microedition/lcdui/Graphics.drawImage": 1
+          },
+          "constantes": [
+            [
+              0,
+              2
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              12,
+              10
+            ],
+            [
+              16,
+              0
+            ],
+            [
+              35,
+              1
+            ],
+            [
+              39,
+              0
+            ],
+            [
+              41,
+              68
+            ],
+            [
+              58,
+              0
+            ],
+            [
+              60,
+              68
+            ],
+            [
+              77,
+              0
+            ],
+            [
+              79,
+              68
+            ],
+            [
+              84,
+              2
+            ],
+            [
+              98,
+              0
+            ],
+            [
+              100,
+              68
+            ],
+            [
+              109,
+              100
+            ],
+            [
+              124,
+              0
+            ],
+            [
+              126,
+              68
+            ],
+            [
+              128,
+              0
+            ],
+            [
+              134,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              4,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              14,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ],
+            [
+              17,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              21,
+              "javax/microedition/lcdui/Graphics.setFont"
+            ],
+            [
+              30,
+              "java/lang/StringBuffer.<init>"
+            ],
+            [
+              32,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              37,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              38,
+              "java/lang/StringBuffer.toString"
+            ],
+            [
+              42,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ],
+            [
+              51,
+              "java/lang/StringBuffer.<init>"
+            ],
+            [
+              53,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              56,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              57,
+              "java/lang/StringBuffer.toString"
+            ],
+            [
+              61,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ],
+            [
+              70,
+              "java/lang/StringBuffer.<init>"
+            ],
+            [
+              72,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              75,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              76,
+              "java/lang/StringBuffer.toString"
+            ],
+            [
+              80,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ],
+            [
+              91,
+              "java/lang/StringBuffer.<init>"
+            ]
+          ],
+          "fields": [
+            [
+              9,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              11,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              20,
+              "getfield",
+              "PieCanvas._mfont"
+            ],
+            [
+              24,
+              "getfield",
+              "PieCanvas._mfontHeight"
+            ],
+            [
+              34,
+              "getfield",
+              "PieCanvas._currentLevel"
+            ],
+            [
+              45,
+              "getfield",
+              "PieCanvas._mfontHeight"
+            ],
+            [
+              55,
+              "getfield",
+              "PieCanvas._startTargets"
+            ],
+            [
+              64,
+              "getfield",
+              "PieCanvas._mfontHeight"
+            ],
+            [
+              74,
+              "getfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              83,
+              "getfield",
+              "PieCanvas._mfontHeight"
+            ],
+            [
+              95,
+              "getfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              104,
+              "getfield",
+              "PieCanvas._mfontHeight"
+            ],
+            [
+              108,
+              "getfield",
+              "PieCanvas._targetsHit"
+            ],
+            [
+              112,
+              "getfield",
+              "PieCanvas._startTargets"
+            ],
+            [
+              132,
+              "getfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              138,
+              "getfield",
+              "PieCanvas._hitPercent"
+            ],
+            [
+              156,
+              "getfield",
+              "PieCanvas._youSuck"
+            ],
+            [
+              162,
+              "getfield",
+              "PieCanvas._youOK"
+            ],
+            [
+              168,
+              "getfield",
+              "PieCanvas._youRule"
+            ],
+            [
+              174,
+              "getfield",
+              "PieCanvas._height"
+            ]
+          ]
+        },
+        {
+          "nome": "endScore",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              2
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "PieCanvas._endLevel"
+            ]
+          ]
+        },
+        {
+          "nome": "drawGame",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;)V",
+          "tipo_ret": "void",
+          "n_instr": 139,
+          "apis": {
+            "javax/microedition/lcdui/Graphics.setColor": 3,
+            "javax/microedition/lcdui/Graphics.fillRect": 3,
+            "javax/microedition/lcdui/Graphics.setClip": 1,
+            "javax/microedition/lcdui/Graphics.drawRect": 1,
+            "javax/microedition/lcdui/Graphics.setFont": 2,
+            "javax/microedition/lcdui/Graphics.drawString": 3,
+            "java/lang/Integer.toString": 2
+          },
+          "constantes": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              24,
+              1
+            ],
+            [
+              28,
+              0
+            ],
+            [
+              33,
+              1
+            ],
+            [
+              40,
+              0
+            ],
+            [
+              41,
+              0
+            ],
+            [
+              52,
+              0
+            ],
+            [
+              53,
+              0
+            ],
+            [
+              60,
+              0
+            ],
+            [
+              62,
+              0
+            ],
+            [
+              79,
+              8
+            ],
+            [
+              80,
+              4
+            ],
+            [
+              93,
+              7
+            ],
+            [
+              94,
+              3
+            ],
+            [
+              107,
+              5
+            ],
+            [
+              110,
+              1
+            ],
+            [
+              112,
+              68
+            ],
+            [
+              126,
+              72
+            ],
+            [
+              136,
+              72
+            ]
+          ],
+          "chamadas": [
+            [
+              2,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              10,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ],
+            [
+              38,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              46,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ],
+            [
+              58,
+              "javax/microedition/lcdui/Graphics.setClip"
+            ],
+            [
+              61,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              81,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ],
+            [
+              95,
+              "javax/microedition/lcdui/Graphics.drawRect"
+            ],
+            [
+              104,
+              "javax/microedition/lcdui/Graphics.setFont"
+            ],
+            [
+              113,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ],
+            [
+              117,
+              "javax/microedition/lcdui/Graphics.setFont"
+            ],
+            [
+              121,
+              "java/lang/Integer.toString"
+            ],
+            [
+              127,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ],
+            [
+              131,
+              "java/lang/Integer.toString"
+            ],
+            [
+              137,
+              "javax/microedition/lcdui/Graphics.drawString"
+            ]
+          ],
+          "fields": [
+            [
+              7,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              9,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              12,
+              "getfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              14,
+              "getfield",
+              "PieCanvas._ammoRecoveryDelta"
+            ],
+            [
+              17,
+              "getfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              19,
+              "getfield",
+              "PieCanvas.MAX_AMMO"
+            ],
+            [
+              23,
+              "getfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              26,
+              "putfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              29,
+              "putfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              32,
+              "getfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              35,
+              "putfield",
+              "PieCanvas._ammoFrameCount"
+            ],
+            [
+              43,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              45,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              48,
+              "getfield",
+              "PieCanvas._sprites"
+            ],
+            [
+              55,
+              "getfield",
+              "PieCanvas._width"
+            ],
+            [
+              57,
+              "getfield",
+              "PieCanvas._height"
+            ],
+            [
+              67,
+              "getfield",
+              "PieCanvas._pieCount"
+            ],
+            [
+              71,
+              "getfield",
+              "PieCanvas._ammoDisplayX"
+            ],
+            [
+              73,
+              "getfield",
+              "PieCanvas._ammoDisplayDelta"
+            ],
+            [
+              78,
+              "getfield",
+              "PieCanvas._ammoDisplayY"
+            ]
+          ]
+        },
+        {
+          "nome": "paint",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;)V",
+          "tipo_ret": "void",
+          "n_instr": 43,
+          "apis": {
+            "javax/microedition/lcdui/Image.getGraphics": 1,
+            "java/lang/System.gc": 1,
+            "javax/microedition/lcdui/Graphics.drawImage": 1
+          },
+          "constantes": [
+            [
+              17,
+              1
+            ],
+            [
+              20,
+              0
+            ],
+            [
+              38,
+              0
+            ],
+            [
+              39,
+              0
+            ],
+            [
+              40,
+              20
+            ]
+          ],
+          "chamadas": [
+            [
+              7,
+              "javax/microedition/lcdui/Image.getGraphics"
+            ],
+            [
+              27,
+              "java/lang/System.gc"
+            ],
+            [
+              41,
+              "javax/microedition/lcdui/Graphics.drawImage"
+            ]
+          ],
+          "fields": [
+            [
+              3,
+              "getfield",
+              "PieCanvas._offscreen"
+            ],
+            [
+              6,
+              "getfield",
+              "PieCanvas._offscreen"
+            ],
+            [
+              10,
+              "getfield",
+              "PieCanvas._endLevel"
+            ],
+            [
+              16,
+              "getfield",
+              "PieCanvas._endLevel"
+            ],
+            [
+              21,
+              "putfield",
+              "PieCanvas._endLevel"
+            ],
+            [
+              25,
+              "getfield",
+              "PieCanvas._parent"
+            ],
+            [
+              37,
+              "getfield",
+              "PieCanvas._offscreen"
+            ]
+          ]
+        },
+        {
+          "nome": "<clinit>",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 7,
+          "apis": {},
+          "constantes": [
+            [
+              0,
+              30
+            ],
+            [
+              2,
+              25
+            ],
+            [
+              4,
+              150
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "putstatic",
+              "PieCanvas.FRAME_WIDTH"
+            ],
+            [
+              3,
+              "putstatic",
+              "PieCanvas.FRAME_HEIGHT"
+            ],
+            [
+              5,
+              "putstatic",
+              "PieCanvas.FRAME_DELAY"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "javax/microedition/lcdui/Canvas.<init>": 1,
+        "javax/microedition/lcdui/Display.getDisplay": 1,
+        "javax/microedition/lcdui/Canvas.getWidth": 1,
+        "javax/microedition/lcdui/Canvas.getHeight": 1,
+        "javax/microedition/lcdui/Image.createImage": 4,
+        "javax/microedition/lcdui/Canvas.isDoubleBuffered": 1,
+        "javax/microedition/midlet/MIDlet.getAppProperty": 1,
+        "javax/microedition/lcdui/Font.getFont": 1,
+        "javax/microedition/lcdui/Font.getHeight": 1,
+        "javax/microedition/lcdui/Font.getDefaultFont": 1,
+        "java/util/Timer.<init>": 1,
+        "java/util/Timer.scheduleAtFixedRate": 1,
+        "java/lang/System.gc": 2,
+        "javax/microedition/lcdui/Graphics.setColor": 5,
+        "javax/microedition/lcdui/Graphics.fillRect": 4,
+        "javax/microedition/lcdui/Graphics.setFont": 3,
+        "java/lang/StringBuffer.<init>": 5,
+        "java/lang/StringBuffer.append": 10,
+        "java/lang/StringBuffer.toString": 5,
+        "javax/microedition/lcdui/Graphics.drawString": 9,
+        "javax/microedition/lcdui/Graphics.drawImage": 2,
+        "javax/microedition/lcdui/Graphics.setClip": 1,
+        "javax/microedition/lcdui/Graphics.drawRect": 1,
+        "java/lang/Integer.toString": 2,
+        "javax/microedition/lcdui/Image.getGraphics": 1
+      },
+      "padroes": [
+        "CANVAS",
+        "TEM_PAINT",
+        "TEM_INPUT",
+        "USA_TIMER",
+        "USA_IMAGE"
+      ]
+    },
+    {
+      "arquivo": "org/eaves/piefight/PieMidlet.class",
+      "nome": "PieMidlet",
+      "super": "MIDlet",
+      "campos": [
+        {
+          "nome": "NAME",
+          "desc": "Ljava/lang/String;",
+          "tipo_c": "String*"
+        },
+        {
+          "nome": "NULL_VERSION",
+          "desc": "Ljava/lang/String;",
+          "tipo_c": "String*"
+        },
+        {
+          "nome": "_exit",
+          "desc": "Ljavax/microedition/lcdui/Command;",
+          "tipo_c": "Command*"
+        },
+        {
+          "nome": "_next",
+          "desc": "Ljavax/microedition/lcdui/Command;",
+          "tipo_c": "Command*"
+        },
+        {
+          "nome": "_scoreNext",
+          "desc": "Ljavax/microedition/lcdui/Command;",
+          "tipo_c": "Command*"
+        },
+        {
+          "nome": "_scoreNextAdded",
+          "desc": "Z",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_version",
+          "desc": "Ljava/lang/String;",
+          "tipo_c": "String*"
+        },
+        {
+          "nome": "_started",
+          "desc": "Z",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_introDone",
+          "desc": "Z",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_display",
+          "desc": "Ljavax/microedition/lcdui/Display;",
+          "tipo_c": "Display*"
+        },
+        {
+          "nome": "_pie",
+          "desc": "Lorg/eaves/piefight/PieCanvas;",
+          "tipo_c": "PieCanvas*"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 61,
+          "apis": {
+            "javax/microedition/midlet/MIDlet.<init>": 1,
+            "javax/microedition/midlet/MIDlet.getAppProperty": 1,
+            "javax/microedition/lcdui/Command.<init>": 3
+          },
+          "constantes": [
+            [
+              12,
+              0
+            ],
+            [
+              15,
+              0
+            ],
+            [
+              18,
+              0
+            ],
+            [
+              40,
+              7
+            ],
+            [
+              41,
+              1
+            ],
+            [
+              48,
+              4
+            ],
+            [
+              49,
+              1
+            ],
+            [
+              56,
+              4
+            ],
+            [
+              57,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              1,
+              "javax/microedition/midlet/MIDlet.<init>"
+            ],
+            [
+              23,
+              "javax/microedition/midlet/MIDlet.getAppProperty"
+            ],
+            [
+              42,
+              "javax/microedition/lcdui/Command.<init>"
+            ],
+            [
+              50,
+              "javax/microedition/lcdui/Command.<init>"
+            ],
+            [
+              58,
+              "javax/microedition/lcdui/Command.<init>"
+            ]
+          ],
+          "fields": [
+            [
+              4,
+              "putfield",
+              "PieMidlet.NAME"
+            ],
+            [
+              7,
+              "putfield",
+              "PieMidlet.NULL_VERSION"
+            ],
+            [
+              10,
+              "putfield",
+              "PieMidlet._scoreNext"
+            ],
+            [
+              13,
+              "putfield",
+              "PieMidlet._scoreNextAdded"
+            ],
+            [
+              16,
+              "putfield",
+              "PieMidlet._started"
+            ],
+            [
+              19,
+              "putfield",
+              "PieMidlet._introDone"
+            ],
+            [
+              24,
+              "putfield",
+              "PieMidlet._version"
+            ],
+            [
+              29,
+              "putfield",
+              "PieMidlet._version"
+            ],
+            [
+              31,
+              "getfield",
+              "PieMidlet._version"
+            ],
+            [
+              35,
+              "putfield",
+              "PieMidlet._version"
+            ],
+            [
+              43,
+              "putfield",
+              "PieMidlet._exit"
+            ],
+            [
+              51,
+              "putfield",
+              "PieMidlet._next"
+            ],
+            [
+              59,
+              "putfield",
+              "PieMidlet._scoreNext"
+            ]
+          ]
+        },
+        {
+          "nome": "startApp",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 68,
+          "apis": {
+            "javax/microedition/lcdui/Display.getDisplay": 1,
+            "javax/microedition/lcdui/Displayable.addCommand": 2,
+            "javax/microedition/lcdui/Displayable.setCommandListener": 2,
+            "javax/microedition/lcdui/Image.createImage": 1,
+            "javax/microedition/lcdui/ImageItem.<init>": 1,
+            "javax/microedition/lcdui/Form.<init>": 1,
+            "javax/microedition/lcdui/Form.append": 1,
+            "javax/microedition/lcdui/Display.setCurrent": 1
+          },
+          "constantes": [
+            [
+              36,
+              3
+            ]
+          ],
+          "chamadas": [
+            [
+              5,
+              "javax/microedition/lcdui/Display.getDisplay"
+            ],
+            [
+              17,
+              "javax/microedition/lcdui/Displayable.addCommand"
+            ],
+            [
+              21,
+              "javax/microedition/lcdui/Displayable.setCommandListener"
+            ],
+            [
+              28,
+              "javax/microedition/lcdui/Image.createImage"
+            ],
+            [
+              38,
+              "javax/microedition/lcdui/ImageItem.<init>"
+            ],
+            [
+              43,
+              "javax/microedition/lcdui/Form.<init>"
+            ],
+            [
+              47,
+              "javax/microedition/lcdui/Form.append"
+            ],
+            [
+              52,
+              "javax/microedition/lcdui/Displayable.addCommand"
+            ],
+            [
+              55,
+              "javax/microedition/lcdui/Displayable.setCommandListener"
+            ],
+            [
+              59,
+              "javax/microedition/lcdui/Display.setCurrent"
+            ]
+          ],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieMidlet._display"
+            ],
+            [
+              6,
+              "putfield",
+              "PieMidlet._display"
+            ],
+            [
+              12,
+              "putfield",
+              "PieMidlet._pie"
+            ],
+            [
+              14,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              16,
+              "getfield",
+              "PieMidlet._exit"
+            ],
+            [
+              19,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              23,
+              "getfield",
+              "PieMidlet._introDone"
+            ],
+            [
+              51,
+              "getfield",
+              "PieMidlet._next"
+            ],
+            [
+              57,
+              "getfield",
+              "PieMidlet._display"
+            ],
+            [
+              62,
+              "getfield",
+              "PieMidlet._started"
+            ]
+          ]
+        },
+        {
+          "nome": "newPieCanvas",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 10,
+          "apis": {
+            "javax/microedition/lcdui/Display.setCurrent": 1,
+            "java/lang/System.gc": 1
+          },
+          "constantes": [
+            [
+              6,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              4,
+              "javax/microedition/lcdui/Display.setCurrent"
+            ],
+            [
+              8,
+              "java/lang/System.gc"
+            ]
+          ],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieMidlet._display"
+            ],
+            [
+              3,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              7,
+              "putfield",
+              "PieMidlet._started"
+            ]
+          ]
+        },
+        {
+          "nome": "doScoreNext",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 12,
+          "apis": {
+            "javax/microedition/lcdui/Displayable.addCommand": 1
+          },
+          "constantes": [
+            [
+              4,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              10,
+              "javax/microedition/lcdui/Displayable.addCommand"
+            ]
+          ],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "PieMidlet._scoreNextAdded"
+            ],
+            [
+              5,
+              "putfield",
+              "PieMidlet._scoreNextAdded"
+            ],
+            [
+              7,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              9,
+              "getfield",
+              "PieMidlet._scoreNext"
+            ]
+          ]
+        },
+        {
+          "nome": "resetScoreNext",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "PieMidlet._scoreNextAdded"
+            ]
+          ]
+        },
+        {
+          "nome": "commandAction",
+          "desc": "(Ljavax/microedition/lcdui/Command;Ljavax/microedition/lcdui/Displayable;)V",
+          "tipo_ret": "void",
+          "n_instr": 39,
+          "apis": {
+            "javax/microedition/lcdui/Displayable.removeCommand": 1,
+            "java/lang/Thread.sleep": 1,
+            "java/lang/System.gc": 1
+          },
+          "constantes": [
+            [
+              5,
+              1
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "chamadas": [
+            [
+              23,
+              "javax/microedition/lcdui/Displayable.removeCommand"
+            ],
+            [
+              28,
+              "java/lang/Thread.sleep"
+            ],
+            [
+              37,
+              "java/lang/System.gc"
+            ]
+          ],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "PieMidlet._next"
+            ],
+            [
+              6,
+              "putfield",
+              "PieMidlet._introDone"
+            ],
+            [
+              9,
+              "putfield",
+              "PieMidlet._started"
+            ],
+            [
+              14,
+              "getfield",
+              "PieMidlet._scoreNext"
+            ],
+            [
+              17,
+              "getfield",
+              "PieMidlet._scoreNextAdded"
+            ],
+            [
+              20,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              22,
+              "getfield",
+              "PieMidlet._scoreNext"
+            ],
+            [
+              25,
+              "getfield",
+              "PieMidlet._pie"
+            ],
+            [
+              33,
+              "getfield",
+              "PieMidlet._exit"
+            ]
+          ]
+        },
+        {
+          "nome": "pauseApp",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 1,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": []
+        },
+        {
+          "nome": "destroyApp",
+          "desc": "(Z)V",
+          "tipo_ret": "void",
+          "n_instr": 1,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": []
+        },
+        {
+          "nome": "exit",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 6,
+          "apis": {
+            "javax/microedition/midlet/MIDlet.notifyDestroyed": 1
+          },
+          "constantes": [
+            [
+              1,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              4,
+              "javax/microedition/midlet/MIDlet.notifyDestroyed"
+            ]
+          ],
+          "fields": []
+        }
+      ],
+      "apis": {
+        "javax/microedition/midlet/MIDlet.<init>": 1,
+        "javax/microedition/midlet/MIDlet.getAppProperty": 1,
+        "javax/microedition/lcdui/Command.<init>": 3,
+        "javax/microedition/lcdui/Display.getDisplay": 1,
+        "javax/microedition/lcdui/Displayable.addCommand": 3,
+        "javax/microedition/lcdui/Displayable.setCommandListener": 2,
+        "javax/microedition/lcdui/Image.createImage": 1,
+        "javax/microedition/lcdui/ImageItem.<init>": 1,
+        "javax/microedition/lcdui/Form.<init>": 1,
+        "javax/microedition/lcdui/Form.append": 1,
+        "javax/microedition/lcdui/Display.setCurrent": 2,
+        "java/lang/System.gc": 2,
+        "javax/microedition/lcdui/Displayable.removeCommand": 1,
+        "java/lang/Thread.sleep": 1,
+        "javax/microedition/midlet/MIDlet.notifyDestroyed": 1
+      },
+      "padroes": [
+        "MIDLET",
+        "TEM_STARTAPP",
+        "USA_IMAGE"
+      ]
+    },
+    {
+      "arquivo": "org/eaves/piefight/Score.class",
+      "nome": "Score",
+      "super": "Object",
+      "campos": [
+        {
+          "nome": "_scoreTxt",
+          "desc": "Ljava/lang/String;",
+          "tipo_c": "String*"
+        },
+        {
+          "nome": "_thanksTxt",
+          "desc": "Ljava/lang/String;",
+          "tipo_c": "String*"
+        },
+        {
+          "nome": "_play",
+          "desc": "Ljavax/microedition/lcdui/Command;",
+          "tipo_c": "Command*"
+        },
+        {
+          "nome": "_exit",
+          "desc": "Ljavax/microedition/lcdui/Command;",
+          "tipo_c": "Command*"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 46,
+          "apis": {
+            "javax/microedition/lcdui/Form.<init>": 1,
+            "javax/microedition/lcdui/Command.<init>": 2,
+            "java/lang/StringBuffer.<init>": 1,
+            "java/lang/StringBuffer.append": 2,
+            "java/lang/Integer.toString": 1,
+            "java/lang/StringBuffer.toString": 1,
+            "javax/microedition/lcdui/Form.append": 2,
+            "javax/microedition/lcdui/Displayable.addCommand": 2
+          },
+          "constantes": [
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              15,
+              7
+            ],
+            [
+              16,
+              2
+            ]
+          ],
+          "chamadas": [
+            [
+              2,
+              "javax/microedition/lcdui/Form.<init>"
+            ],
+            [
+              9,
+              "javax/microedition/lcdui/Command.<init>"
+            ],
+            [
+              17,
+              "javax/microedition/lcdui/Command.<init>"
+            ],
+            [
+              24,
+              "java/lang/StringBuffer.<init>"
+            ],
+            [
+              26,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              28,
+              "java/lang/Integer.toString"
+            ],
+            [
+              29,
+              "java/lang/StringBuffer.append"
+            ],
+            [
+              30,
+              "java/lang/StringBuffer.toString"
+            ],
+            [
+              31,
+              "javax/microedition/lcdui/Form.append"
+            ],
+            [
+              35,
+              "javax/microedition/lcdui/Form.append"
+            ],
+            [
+              40,
+              "javax/microedition/lcdui/Displayable.addCommand"
+            ],
+            [
+              44,
+              "javax/microedition/lcdui/Displayable.addCommand"
+            ]
+          ],
+          "fields": [
+            [
+              10,
+              "putfield",
+              "Score._play"
+            ],
+            [
+              18,
+              "putfield",
+              "Score._exit"
+            ],
+            [
+              39,
+              "getfield",
+              "Score._play"
+            ],
+            [
+              43,
+              "getfield",
+              "Score._exit"
+            ]
+          ]
+        },
+        {
+          "nome": "getPlayCommand",
+          "desc": "()Ljavax/microedition/lcdui/Command;",
+          "tipo_ret": "Command*",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Score._play"
+            ]
+          ]
+        },
+        {
+          "nome": "getExitCommand",
+          "desc": "()Ljavax/microedition/lcdui/Command;",
+          "tipo_ret": "Command*",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Score._exit"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "javax/microedition/lcdui/Form.<init>": 1,
+        "javax/microedition/lcdui/Command.<init>": 2,
+        "java/lang/StringBuffer.<init>": 1,
+        "java/lang/StringBuffer.append": 2,
+        "java/lang/Integer.toString": 1,
+        "java/lang/StringBuffer.toString": 1,
+        "javax/microedition/lcdui/Form.append": 2,
+        "javax/microedition/lcdui/Displayable.addCommand": 2
+      },
+      "padroes": []
+    },
+    {
+      "arquivo": "org/eaves/piefight/Sprite.class",
+      "nome": "Sprite",
+      "super": "Object",
+      "campos": [
+        {
+          "nome": "INTRO",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "LIVE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "LEAVE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "IDLE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "START",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "HIT",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "INTRO_MISS",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "IDLE_MISS",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "STATES",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_strip",
+          "desc": "Ljavax/microedition/lcdui/Image;",
+          "tipo_c": "Image*"
+        },
+        {
+          "nome": "_state",
+          "desc": "[Lorg/eaves/piefight/State;",
+          "tipo_c": "State**"
+        },
+        {
+          "nome": "_thrownAt",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_listener",
+          "desc": "Lorg/eaves/piefight/SpriteListener;",
+          "tipo_c": "SpriteListener*"
+        },
+        {
+          "nome": "_currentState",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_queueState",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_frameX",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_frameY",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_xpos",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_ypos",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_moved",
+          "desc": "Z",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_painted",
+          "desc": "Z",
+          "tipo_c": "int"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "(Ljavax/microedition/lcdui/Image;)V",
+          "tipo_ret": "void",
+          "n_instr": 16,
+          "apis": {
+            "java/lang/Object.<init>": 1
+          },
+          "constantes": [
+            [
+              3,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              12,
+              8
+            ]
+          ],
+          "chamadas": [
+            [
+              1,
+              "java/lang/Object.<init>"
+            ]
+          ],
+          "fields": [
+            [
+              4,
+              "putfield",
+              "Sprite._moved"
+            ],
+            [
+              7,
+              "putfield",
+              "Sprite._painted"
+            ],
+            [
+              10,
+              "putfield",
+              "Sprite._strip"
+            ],
+            [
+              14,
+              "putfield",
+              "Sprite._state"
+            ]
+          ]
+        },
+        {
+          "nome": "start",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 76,
+          "apis": {},
+          "constantes": [
+            [
+              2,
+              4
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              14,
+              7
+            ],
+            [
+              15,
+              5
+            ],
+            [
+              20,
+              1
+            ],
+            [
+              23,
+              11
+            ],
+            [
+              24,
+              4
+            ],
+            [
+              29,
+              2
+            ],
+            [
+              32,
+              15
+            ],
+            [
+              33,
+              4
+            ],
+            [
+              38,
+              3
+            ],
+            [
+              41,
+              0
+            ],
+            [
+              42,
+              7
+            ],
+            [
+              47,
+              5
+            ],
+            [
+              50,
+              39
+            ],
+            [
+              51,
+              11
+            ],
+            [
+              56,
+              6
+            ],
+            [
+              59,
+              27
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              10,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              19,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              28,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              37,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              46,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              55,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              64,
+              "getfield",
+              "Sprite._state"
+            ]
+          ]
+        },
+        {
+          "nome": "throwAt",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [
+            [
+              1,
+              4
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._thrownAt"
+            ]
+          ]
+        },
+        {
+          "nome": "setListener",
+          "desc": "(Lorg/eaves/piefight/SpriteListener;)V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._listener"
+            ]
+          ]
+        },
+        {
+          "nome": "nextState",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 18,
+          "apis": {},
+          "constantes": [
+            [
+              2,
+              3
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._currentState"
+            ],
+            [
+              7,
+              "getfield",
+              "Sprite._currentState"
+            ],
+            [
+              11,
+              "putfield",
+              "Sprite._currentState"
+            ],
+            [
+              15,
+              "getstatic",
+              "SpriteEvent.END_SPRITE"
+            ]
+          ]
+        },
+        {
+          "nome": "action",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 13,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._listener"
+            ],
+            [
+              5,
+              "getfield",
+              "Sprite._listener"
+            ]
+          ]
+        },
+        {
+          "nome": "draw",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;)V",
+          "tipo_ret": "void",
+          "n_instr": 83,
+          "apis": {
+            "javax/microedition/lcdui/Graphics.clipRect": 1,
+            "javax/microedition/lcdui/Graphics.drawImage": 1,
+            "javax/microedition/lcdui/Graphics.fillRect": 1
+          },
+          "constantes": [
+            [
+              5,
+              2
+            ],
+            [
+              10,
+              5
+            ],
+            [
+              17,
+              2
+            ],
+            [
+              21,
+              2
+            ],
+            [
+              41,
+              5
+            ],
+            [
+              58,
+              20
+            ],
+            [
+              77,
+              3
+            ],
+            [
+              80,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              43,
+              "javax/microedition/lcdui/Graphics.clipRect"
+            ],
+            [
+              59,
+              "javax/microedition/lcdui/Graphics.drawImage"
+            ],
+            [
+              78,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ]
+          ],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._ypos"
+            ],
+            [
+              3,
+              "getfield",
+              "Sprite._frameY"
+            ],
+            [
+              9,
+              "getfield",
+              "Sprite._thrownAt"
+            ],
+            [
+              14,
+              "getfield",
+              "Sprite._xpos"
+            ],
+            [
+              16,
+              "getfield",
+              "Sprite._frameX"
+            ],
+            [
+              28,
+              "getfield",
+              "Sprite._xpos"
+            ],
+            [
+              30,
+              "getfield",
+              "Sprite._ypos"
+            ],
+            [
+              34,
+              "getfield",
+              "Sprite._xpos"
+            ],
+            [
+              36,
+              "getfield",
+              "Sprite._ypos"
+            ],
+            [
+              38,
+              "getfield",
+              "Sprite._frameX"
+            ],
+            [
+              40,
+              "getfield",
+              "Sprite._frameY"
+            ],
+            [
+              49,
+              "getfield",
+              "Sprite._strip"
+            ],
+            [
+              51,
+              "getfield",
+              "Sprite._xpos"
+            ],
+            [
+              57,
+              "getfield",
+              "Sprite._ypos"
+            ],
+            [
+              61,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              63,
+              "getfield",
+              "Sprite._currentState"
+            ],
+            [
+              68,
+              "getstatic",
+              "SpriteEvent.END_STATE"
+            ],
+            [
+              71,
+              "getfield",
+              "Sprite._thrownAt"
+            ],
+            [
+              81,
+              "putfield",
+              "Sprite._painted"
+            ]
+          ]
+        },
+        {
+          "nome": "animate",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 24,
+          "apis": {},
+          "constantes": [
+            [
+              17,
+              1
+            ],
+            [
+              21,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._painted"
+            ],
+            [
+              5,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              7,
+              "getfield",
+              "Sprite._currentState"
+            ],
+            [
+              12,
+              "getfield",
+              "Sprite._thrownAt"
+            ],
+            [
+              16,
+              "getfield",
+              "Sprite._thrownAt"
+            ],
+            [
+              19,
+              "putfield",
+              "Sprite._thrownAt"
+            ],
+            [
+              22,
+              "putfield",
+              "Sprite._painted"
+            ]
+          ]
+        },
+        {
+          "nome": "clear",
+          "desc": "(Ljavax/microedition/lcdui/Graphics;II)V",
+          "tipo_ret": "void",
+          "n_instr": 17,
+          "apis": {
+            "javax/microedition/lcdui/Graphics.setColor": 2,
+            "javax/microedition/lcdui/Graphics.fillRect": 1
+          },
+          "constantes": [
+            [
+              10,
+              4
+            ],
+            [
+              14,
+              0
+            ]
+          ],
+          "chamadas": [
+            [
+              2,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ],
+            [
+              12,
+              "javax/microedition/lcdui/Graphics.fillRect"
+            ],
+            [
+              15,
+              "javax/microedition/lcdui/Graphics.setColor"
+            ]
+          ],
+          "fields": [
+            [
+              7,
+              "getfield",
+              "Sprite._frameX"
+            ],
+            [
+              9,
+              "getfield",
+              "Sprite._frameY"
+            ]
+          ]
+        },
+        {
+          "nome": "setX",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._xpos"
+            ]
+          ]
+        },
+        {
+          "nome": "setY",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._ypos"
+            ]
+          ]
+        },
+        {
+          "nome": "frameX",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._frameX"
+            ]
+          ]
+        },
+        {
+          "nome": "frameY",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 4,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._frameY"
+            ]
+          ]
+        },
+        {
+          "nome": "getState",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._currentState"
+            ]
+          ]
+        },
+        {
+          "nome": "setState",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 13,
+          "apis": {},
+          "constantes": [
+            [
+              4,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "putfield",
+              "Sprite._currentState"
+            ],
+            [
+              5,
+              "putfield",
+              "Sprite._painted"
+            ],
+            [
+              7,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              9,
+              "getfield",
+              "Sprite._currentState"
+            ]
+          ]
+        },
+        {
+          "nome": "getFrame",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 7,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._state"
+            ],
+            [
+              3,
+              "getfield",
+              "Sprite._currentState"
+            ]
+          ]
+        },
+        {
+          "nome": "frameXPos",
+          "desc": "(I)I",
+          "tipo_ret": "int",
+          "n_instr": 5,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._frameX"
+            ]
+          ]
+        },
+        {
+          "nome": "frameYPos",
+          "desc": "(I)I",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "Sprite._frameY"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "java/lang/Object.<init>": 1,
+        "javax/microedition/lcdui/Graphics.clipRect": 1,
+        "javax/microedition/lcdui/Graphics.drawImage": 1,
+        "javax/microedition/lcdui/Graphics.fillRect": 2,
+        "javax/microedition/lcdui/Graphics.setColor": 2
+      },
+      "padroes": []
+    },
+    {
+      "arquivo": "org/eaves/piefight/SpriteEvent.class",
+      "nome": "SpriteEvent",
+      "super": "Object",
+      "campos": [
+        {
+          "nome": "END_STATE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "END_SPRITE",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_event",
+          "desc": "I",
+          "tipo_c": "int"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 3,
+          "apis": {
+            "java/lang/Object.<init>": 1
+          },
+          "constantes": [],
+          "chamadas": [
+            [
+              1,
+              "java/lang/Object.<init>"
+            ]
+          ],
+          "fields": []
+        },
+        {
+          "nome": "<init>",
+          "desc": "(I)V",
+          "tipo_ret": "void",
+          "n_instr": 6,
+          "apis": {
+            "java/lang/Object.<init>": 1
+          },
+          "constantes": [],
+          "chamadas": [
+            [
+              1,
+              "java/lang/Object.<init>"
+            ]
+          ],
+          "fields": [
+            [
+              4,
+              "putfield",
+              "SpriteEvent._event"
+            ]
+          ]
+        },
+        {
+          "nome": "getEvent",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "SpriteEvent._event"
+            ]
+          ]
+        },
+        {
+          "nome": "<clinit>",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 5,
+          "apis": {},
+          "constantes": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "putstatic",
+              "SpriteEvent.END_STATE"
+            ],
+            [
+              3,
+              "putstatic",
+              "SpriteEvent.END_SPRITE"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "java/lang/Object.<init>": 2
+      },
+      "padroes": []
+    },
+    {
+      "arquivo": "org/eaves/piefight/SpriteListener.class",
+      "nome": "SpriteListener",
+      "super": "Object",
+      "campos": [],
+      "metodos": [
+        {
+          "nome": "spriteAction",
+          "desc": "(Lorg/eaves/piefight/Sprite;Lorg/eaves/piefight/SpriteEvent;)V",
+          "tipo_ret": "void",
+          "n_instr": 0,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": []
+        }
+      ],
+      "apis": {},
+      "padroes": []
+    },
+    {
+      "arquivo": "org/eaves/piefight/State.class",
+      "nome": "State",
+      "super": "Object",
+      "campos": [
+        {
+          "nome": "_start",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_end",
+          "desc": "I",
+          "tipo_c": "int"
+        },
+        {
+          "nome": "_frame",
+          "desc": "I",
+          "tipo_c": "int"
+        }
+      ],
+      "metodos": [
+        {
+          "nome": "<init>",
+          "desc": "(II)V",
+          "tipo_ret": "void",
+          "n_instr": 18,
+          "apis": {
+            "java/lang/Object.<init>": 1
+          },
+          "constantes": [
+            [
+              9,
+              1
+            ]
+          ],
+          "chamadas": [
+            [
+              1,
+              "java/lang/Object.<init>"
+            ]
+          ],
+          "fields": [
+            [
+              4,
+              "putfield",
+              "State._start"
+            ],
+            [
+              7,
+              "getfield",
+              "State._start"
+            ],
+            [
+              12,
+              "putfield",
+              "State._end"
+            ],
+            [
+              15,
+              "getfield",
+              "State._start"
+            ],
+            [
+              16,
+              "putfield",
+              "State._frame"
+            ]
+          ]
+        },
+        {
+          "nome": "next",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 27,
+          "apis": {},
+          "constantes": [
+            [
+              3,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              5,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              7,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              9,
+              "getfield",
+              "State._start"
+            ],
+            [
+              13,
+              "getfield",
+              "State._start"
+            ],
+            [
+              14,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              16,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              18,
+              "getfield",
+              "State._end"
+            ],
+            [
+              22,
+              "getfield",
+              "State._end"
+            ],
+            [
+              23,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              25,
+              "getfield",
+              "State._frame"
+            ]
+          ]
+        },
+        {
+          "nome": "prev",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 27,
+          "apis": {},
+          "constantes": [
+            [
+              3,
+              1
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              5,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              7,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              9,
+              "getfield",
+              "State._start"
+            ],
+            [
+              13,
+              "getfield",
+              "State._start"
+            ],
+            [
+              14,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              16,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              18,
+              "getfield",
+              "State._end"
+            ],
+            [
+              22,
+              "getfield",
+              "State._end"
+            ],
+            [
+              23,
+              "putfield",
+              "State._frame"
+            ],
+            [
+              25,
+              "getfield",
+              "State._frame"
+            ]
+          ]
+        },
+        {
+          "nome": "init",
+          "desc": "()V",
+          "tipo_ret": "void",
+          "n_instr": 5,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              2,
+              "getfield",
+              "State._start"
+            ],
+            [
+              3,
+              "putfield",
+              "State._frame"
+            ]
+          ]
+        },
+        {
+          "nome": "current",
+          "desc": "()I",
+          "tipo_ret": "int",
+          "n_instr": 3,
+          "apis": {},
+          "constantes": [],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "State._frame"
+            ]
+          ]
+        },
+        {
+          "nome": "atEnd",
+          "desc": "()Z",
+          "tipo_ret": "int",
+          "n_instr": 9,
+          "apis": {},
+          "constantes": [
+            [
+              5,
+              1
+            ],
+            [
+              7,
+              0
+            ]
+          ],
+          "chamadas": [],
+          "fields": [
+            [
+              1,
+              "getfield",
+              "State._frame"
+            ],
+            [
+              3,
+              "getfield",
+              "State._end"
+            ]
+          ]
+        }
+      ],
+      "apis": {
+        "java/lang/Object.<init>": 1
+      },
+      "padroes": []
+    }
+  ],
+  "n_classes": 8
+}
