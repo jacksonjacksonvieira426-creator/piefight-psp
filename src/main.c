@@ -50,10 +50,22 @@ typedef struct SpriteEvent_s SpriteEvent;
 typedef struct SpriteListener_s SpriteListener;
 typedef struct State_s State;
 
+// Prototipos extras
+void* j2me_image_get_graphics(void* img);
+void  PieMidlet_resetScoreNext(void* self);
+void  PieCanvas_nextLevel();
+void  PieCanvas_isRunning_real(void* self);
+void  Sprite_animate_real(void* self);
+void  PieCanvas_drawScore(void* self, void* g);
+void  PieCanvas_drawGame(void* self, void* g);
+void  j2me_canvas_repaint(void);
+void  j2me_canvas_serviceRepaints(void);
+
+
 // ===== STUBS (auto-fix) =====
 void j2me_gc(void) { }
-int  PieCanvas_isRunning(void* self) { (void)self; return 1; }
-void Sprite_animate(void* self) { (void)self; }
+
+
 int  Animator_IMAGES = 5;
 void j2me_canvas_repaint(void) { }
 void j2me_canvas_serviceRepaints(void) { }
@@ -427,20 +439,20 @@ void PieCanvas_paint(void* arg1) {
     PieCanvas* s = (PieCanvas*)_self;
     if (!s) return;
     void* g = arg1;
-    if (s->offscreen != 0) g = j2me_image_get_graphics(s->offscreen);
+    if (s->_offscreen != 0) g = j2me_image_get_graphics(s->_offscreen);
     if (s->_endLevel > 0) {
         PieCanvas_drawScore(s, g);
         if (s->_endLevel > 1) {
             s->_endLevel = 0;
-            PieCanvas_nextLevel(s);
+            PieCanvas_nextLevel();
             if (s->_parent) PieMidlet_resetScoreNext(s->_parent);
             j2me_gc();
         }
     } else {
         PieCanvas_drawGame(s, g);
     }
-    if (arg1 != s->offscreen && s->offscreen) {
-        j2me_image_blit((J2MEImage*)s->offscreen, 0, 0);
+    if (arg1 != s->_offscreen && s->_offscreen) {
+        j2me_image_blit((J2MEImage*)s->_offscreen, 0, 0);
     }
 }
 
