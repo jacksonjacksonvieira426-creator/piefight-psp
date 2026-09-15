@@ -41,14 +41,7 @@ PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER);
 // ============================================
 // FORWARD DECLARATIONS das classes do projeto
 // ============================================
-typedef 
-// Prototipos e globais (auto-fix)
-void j2me_gc(void) { }
-int  PieCanvas_isRunning(void* self) { (void)self; return 1; }
-void Sprite_animate(void* self) { (void)self; }
-int  Animator_IMAGES = 5;
-
-struct Animator_s Animator;
+typedef struct Animator_s Animator;
 typedef struct PieCanvas_s PieCanvas;
 typedef struct PieMidlet_s PieMidlet;
 typedef struct Score_s Score;
