@@ -55,6 +55,9 @@ void j2me_gc(void) { }
 int  PieCanvas_isRunning(void* self) { (void)self; return 1; }
 void Sprite_animate(void* self) { (void)self; }
 int  Animator_IMAGES = 5;
+void j2me_canvas_repaint(void) { }
+void j2me_canvas_serviceRepaints(void) { }
+void* _self = 0;
 
 
 // ============================================
@@ -306,8 +309,8 @@ void PieCanvas_keyPressed(int arg0) {
     PieCanvas* s = (PieCanvas*)_self;
     if (!s) return;
     int n = arg0 - 48;
-    if (n > 0 && n < 7 && s->sprites != 0) {
-        Animator_keyPressed(s->sprites, n);
+    if (n > 0 && n < 7 && s->_sprites != 0) {
+        Animator_keyPressed(s->_sprites);
     }
 }
 
