@@ -1,21 +1,19 @@
-// piefight - Port automatico J2ME -> PSP
-// Gerado por portador.py
-// MIDlet: PieMidlet  Canvas: Animator
-
+// piefight - main.c gerado por V10 (consistente)
 #include <pspkernel.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include "j2me_gfx.h"
 #include "j2me_font.h"
 #include "j2me_input.h"
 #include "j2me_image.h"
 #include "j2me_clip.h"
 #include "j2me_runtime.h"
-#include <stdint.h>
 
-// ============================================
-// TIPOS J2ME -> ponteiros opacos em C
-// ============================================
+#define SCR_W 480
+#define SCR_H 272
+
+// Tipos J2ME como void*
 typedef void* Image;
 typedef void* Graphics;
 typedef void* Font;
@@ -31,16 +29,33 @@ typedef void* TimerTask;
 typedef void* Vector;
 typedef void* InputStream;
 typedef void* DataInputStream;
+typedef void* Thread;
 
-PSP_MODULE_INFO("piefight", 0, 1, 0);
-PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER);
+// Stubs de biblioteca
+void j2me_canvas_repaint(void) { }
+void j2me_canvas_serviceRepaints(void) { }
+void j2me_gc(void) { }
+void* j2me_image_get_graphics(void* img) { return img; }
 
-#define SCR_W 480
-#define SCR_H 272
+// Globais
+void* _self = 0;
+void* _p1_self = 0;
+void* _p2_self = 0;
+void* _role_self = 0;
+Animator* msf_mc = 0;
+int Game_count = 0;
+int MapCanvas_OFFY = 0;
+int MapCanvas_OFFX = 0;
+int MapCanvas_CanvasWidth = 0;
+int MapCanvas_CanvasHeight = 0;
+int MapCanvas_still = 0;
+int MapCanvas_lightflag = 0;
+MapCanvas_OFFY = 96;
+MapCanvas_OFFX = 180;
+MapCanvas_CanvasWidth = 480;
+MapCanvas_CanvasHeight = 272;
 
-// ============================================
-// FORWARD DECLARATIONS das classes do projeto
-// ============================================
+// Forward declarations
 typedef struct Animator_s Animator;
 typedef struct PieCanvas_s PieCanvas;
 typedef struct PieMidlet_s PieMidlet;
@@ -50,730 +65,615 @@ typedef struct SpriteEvent_s SpriteEvent;
 typedef struct SpriteListener_s SpriteListener;
 typedef struct State_s State;
 
-// Prototipos extras
-void* j2me_image_get_graphics(void* img);
-void  PieMidlet_resetScoreNext(void* self);
-void  PieCanvas_nextLevel();
-void  PieCanvas_isRunning_real(void* self);
-void  Sprite_animate_real(void* self);
-void  PieCanvas_drawScore(void* self, void* g);
-void  PieCanvas_drawGame(void* self, void* g);
-void  j2me_canvas_repaint(void);
-void  j2me_canvas_serviceRepaints(void);
-
-
-// ===== STUBS (auto-fix) =====
-void j2me_gc(void) { }
-
-
-int  Animator_IMAGES = 5;
-void j2me_canvas_repaint(void) { }
-void j2me_canvas_serviceRepaints(void) { }
-void* _self = 0;
-
-
-// ============================================
-// ESTRUTURAS DE DADOS (traduzidas do J2ME)
-// ============================================
-
-// === Classe: Animator (extends Canvas) ===
-// Padroes detectados: CANVAS, TEM_INPUT, TEM_RUN, USA_TIMER, USA_IMAGE
 struct Animator_s {
-    int             FRAME_WIDTH;  // FRAME_WIDTH (I)
-    int             FRAME_HEIGHT;  // FRAME_HEIGHT (I)
-    int             X;  // X (I)
-    int             Y;  // Y (I)
-    int             IMAGES;  // IMAGES (I)
-    Sprite**        _window;  // _window ([Lorg/eaves/piefight/Sprite;)
-    PieCanvas*      _parent;  // _parent (Lorg/eaves/piefight/PieCanvas;)
-    Display*        _sound;  // _sound (Ljavax/microedition/lcdui/Display;)
-    int             _width;  // _width (I)
-    int             _height;  // _height (I)
-    Random*         _r;  // _r (Ljava/util/Random;)
+    int          FRAME_WIDTH;
+    int          FRAME_HEIGHT;
+    int          X;
+    int          Y;
+    int          IMAGES;
+    Sprite**     window;
+    PieCanvas*   parent;
+    Display*     sound;
+    int          width;
+    int          height;
+    Random*      r;
 };
 
-// === Classe: PieCanvas (extends Canvas) ===
-// Padroes detectados: CANVAS, TEM_PAINT, TEM_INPUT, USA_TIMER, USA_IMAGE
 struct PieCanvas_s {
-    int             FRAME_WIDTH;  // FRAME_WIDTH (I)
-    int             FRAME_HEIGHT;  // FRAME_HEIGHT (I)
-    int             FRAME_DELAY;  // FRAME_DELAY (I)
-    int             SUCK;  // SUCK (I)
-    int             OK;  // OK (I)
-    int             RULE;  // RULE (I)
-    Font*           _mfont;  // _mfont (Ljavax/microedition/lcdui/Font;)
-    Font*           _nfont;  // _nfont (Ljavax/microedition/lcdui/Font;)
-    int             _mfontHeight;  // _mfontHeight (I)
-    Image*          _offscreen;  // _offscreen (Ljavax/microedition/lcdui/Image;)
-    Image*          _youSuck;  // _youSuck (Ljavax/microedition/lcdui/Image;)
-    Image*          _youRule;  // _youRule (Ljavax/microedition/lcdui/Image;)
-    Image*          _youOK;  // _youOK (Ljavax/microedition/lcdui/Image;)
-    Timer*          _animate;  // _animate (Ljava/util/Timer;)
-    Animator*       _sprites;  // _sprites (Lorg/eaves/piefight/Animator;)
-    int             _currentFrame;  // _currentFrame (I)
-    int             _maxFrame;  // _maxFrame (I)
-    int             _width;  // _width (I)
-    int             _height;  // _height (I)
-    int             _running;  // _running (Z)
-    int             MAX_AMMO;  // MAX_AMMO (I)
-    int             _pieCount;  // _pieCount (I)
-    int             _ammoFrameCount;  // _ammoFrameCount (I)
-    int             _ammoDisplayX;  // _ammoDisplayX (I)
-    int             _ammoDisplayY;  // _ammoDisplayY (I)
-    int             _ammoDisplayDelta;  // _ammoDisplayDelta (I)
-    int             _targetsHitX;  // _targetsHitX (I)
-    int             _targetsLeftX;  // _targetsLeftX (I)
-    int             _infoLineY;  // _infoLineY (I)
-    int             _targetsHit;  // _targetsHit (I)
-    int             _targetsLeft;  // _targetsLeft (I)
-    int             _startTargets;  // _startTargets (I)
-    int             _endLevel;  // _endLevel (I)
-    int             _currentLevel;  // _currentLevel (I)
-    int             _hitPercent;  // _hitPercent (I)
-    int             _maxAlive;  // _maxAlive (I)
-    int             _ammoRecoveryDelta;  // _ammoRecoveryDelta (I)
-    PieMidlet*      _parent;  // _parent (Lorg/eaves/piefight/PieMidlet;)
-    Display*        _display;  // _display (Ljavax/microedition/lcdui/Display;)
+    int          FRAME_WIDTH;
+    int          FRAME_HEIGHT;
+    int          FRAME_DELAY;
+    int          SUCK;
+    int          OK;
+    int          RULE;
+    Font*        mfont;
+    Font*        nfont;
+    int          mfontHeight;
+    Image*       offscreen;
+    Image*       youSuck;
+    Image*       youRule;
+    Image*       youOK;
+    Timer*       animate;
+    Animator*    sprites;
+    int          currentFrame;
+    int          maxFrame;
+    int          width;
+    int          height;
+    int          running;
+    int          MAX_AMMO;
+    int          pieCount;
+    int          ammoFrameCount;
+    int          ammoDisplayX;
+    int          ammoDisplayY;
+    int          ammoDisplayDelta;
+    int          targetsHitX;
+    int          targetsLeftX;
+    int          infoLineY;
+    int          targetsHit;
+    int          targetsLeft;
+    int          startTargets;
+    int          endLevel;
+    int          currentLevel;
+    int          hitPercent;
+    int          maxAlive;
+    int          ammoRecoveryDelta;
+    PieMidlet*   parent;
+    Display*     display;
 };
 
-// === Classe: PieMidlet (extends MIDlet) ===
-// Padroes detectados: MIDLET, TEM_STARTAPP, USA_IMAGE
 struct PieMidlet_s {
-    String*         NAME;  // NAME (Ljava/lang/String;)
-    String*         NULL_VERSION;  // NULL_VERSION (Ljava/lang/String;)
-    Command*        _exit;  // _exit (Ljavax/microedition/lcdui/Command;)
-    Command*        _next;  // _next (Ljavax/microedition/lcdui/Command;)
-    Command*        _scoreNext;  // _scoreNext (Ljavax/microedition/lcdui/Command;)
-    int             _scoreNextAdded;  // _scoreNextAdded (Z)
-    String*         _version;  // _version (Ljava/lang/String;)
-    int             _started;  // _started (Z)
-    int             _introDone;  // _introDone (Z)
-    Display*        _display;  // _display (Ljavax/microedition/lcdui/Display;)
-    PieCanvas*      _pie;  // _pie (Lorg/eaves/piefight/PieCanvas;)
+    String*      NAME;
+    String*      NULL_VERSION;
+    Command*     exit;
+    Command*     next;
+    Command*     scoreNext;
+    int          scoreNextAdded;
+    String*      version;
+    int          started;
+    int          introDone;
+    Display*     display;
+    PieCanvas*   pie;
 };
 
-// === Classe: Score (extends Object) ===
-// Padroes detectados: nenhum
 struct Score_s {
-    String*         _scoreTxt;  // _scoreTxt (Ljava/lang/String;)
-    String*         _thanksTxt;  // _thanksTxt (Ljava/lang/String;)
-    Command*        _play;  // _play (Ljavax/microedition/lcdui/Command;)
-    Command*        _exit;  // _exit (Ljavax/microedition/lcdui/Command;)
+    String*      scoreTxt;
+    String*      thanksTxt;
+    Command*     play;
+    Command*     exit;
 };
 
-// === Classe: Sprite (extends Object) ===
-// Padroes detectados: nenhum
 struct Sprite_s {
-    int             INTRO;  // INTRO (I)
-    int             LIVE;  // LIVE (I)
-    int             LEAVE;  // LEAVE (I)
-    int             IDLE;  // IDLE (I)
-    int             START;  // START (I)
-    int             HIT;  // HIT (I)
-    int             INTRO_MISS;  // INTRO_MISS (I)
-    int             IDLE_MISS;  // IDLE_MISS (I)
-    int             STATES;  // STATES (I)
-    Image*          _strip;  // _strip (Ljavax/microedition/lcdui/Image;)
-    State**         _state;  // _state ([Lorg/eaves/piefight/State;)
-    int             _thrownAt;  // _thrownAt (I)
-    SpriteListener* _listener;  // _listener (Lorg/eaves/piefight/SpriteListener;)
-    int             _currentState;  // _currentState (I)
-    int             _queueState;  // _queueState (I)
-    int             _frameX;  // _frameX (I)
-    int             _frameY;  // _frameY (I)
-    int             _xpos;  // _xpos (I)
-    int             _ypos;  // _ypos (I)
-    int             _moved;  // _moved (Z)
-    int             _painted;  // _painted (Z)
+    int          INTRO;
+    int          LIVE;
+    int          LEAVE;
+    int          IDLE;
+    int          START;
+    int          HIT;
+    int          INTRO_MISS;
+    int          IDLE_MISS;
+    int          STATES;
+    Image*       strip;
+    State**      state;
+    int          thrownAt;
+    SpriteListener* listener;
+    int          currentState;
+    int          queueState;
+    int          frameX;
+    int          frameY;
+    int          xpos;
+    int          ypos;
+    int          moved;
+    int          painted;
 };
 
-// === Classe: SpriteEvent (extends Object) ===
-// Padroes detectados: nenhum
 struct SpriteEvent_s {
-    int             END_STATE;  // END_STATE (I)
-    int             END_SPRITE;  // END_SPRITE (I)
-    int             _event;  // _event (I)
+    int          END_STATE;
+    int          END_SPRITE;
+    int          event;
 };
 
-// === Classe: SpriteListener (extends Object) ===
-// Padroes detectados: nenhum
 struct SpriteListener_s {
     int _vazio;
 };
 
-// === Classe: State (extends Object) ===
-// Padroes detectados: nenhum
 struct State_s {
-    int             _start;  // _start (I)
-    int             _end;  // _end (I)
-    int             _frame;  // _frame (I)
+    int          start;
+    int          end;
+    int          frame;
 };
 
-// ============================================
-// METODOS (traduzidos do bytecode)
-// ============================================
+// Prototipos
+void Animator_constructor(void* self, void* arg0, int arg1, int arg2, void* arg3);
+void Animator_guardState(void* self, void* arg0);
+void Animator_reset(void* self);
+void Animator_spriteAction(void* self, void* arg0, void* arg1);
+void Animator_keyPressed(void* self, int arg0);
+void Animator_draw(void* self, void* arg0);
+int Animator_getFrame(void* self);
+int Animator_targetsActive(void* self);
+void Animator_run(void* self);
+void PieCanvas_constructor(void* self, void* arg0);
+void PieCanvas_changeLevel(void* self, int arg0);
+void PieCanvas_keyPressed(void* self, int arg0);
+int PieCanvas_ammoAvailable(void* self);
+void PieCanvas_showNotify(void* self);
+void PieCanvas_hideNotify(void* self);
+int PieCanvas_isRunning(void* self);
+int PieCanvas_maxAlive(void* self);
+void PieCanvas_targetShown(void* self);
+int PieCanvas_targetsLeft(void* self);
+void PieCanvas_nextLevel(void* self);
+void PieCanvas_targetHit(void* self);
+void PieCanvas_drawScore(void* self, void* arg0);
+void PieCanvas_endScore(void* self);
+void PieCanvas_drawGame(void* self, void* arg0);
+void PieCanvas_paint(void* self, void* arg0);
+void PieMidlet_constructor(void* self);
+void PieMidlet_startApp(void* self);
+void PieMidlet_newPieCanvas(void* self);
+void PieMidlet_doScoreNext(void* self);
+void PieMidlet_resetScoreNext(void* self);
+void PieMidlet_commandAction(void* self, void* arg0, void* arg1);
+void PieMidlet_pauseApp(void* self);
+void PieMidlet_destroyApp(void* self, int arg0);
+void PieMidlet_exit(void* self);
+void Score_constructor(void* self, int arg0);
+void* Score_getPlayCommand(void* self);
+void* Score_getExitCommand(void* self);
+void Sprite_constructor(void* self, void* arg0);
+void Sprite_start(void* self);
+void Sprite_throwAt(void* self);
+void Sprite_setListener(void* self, void* arg0);
+void Sprite_nextState(void* self);
+void Sprite_action(void* self, int arg0);
+void Sprite_draw(void* self, void* arg0);
+void Sprite_animate(void* self);
+void Sprite_clear(void* self, void* arg0, int arg1, int arg2);
+void Sprite_setX(void* self, int arg0);
+void Sprite_setY(void* self, int arg0);
+void Sprite_frameX(void* self, int arg0);
+void Sprite_frameY(void* self, int arg0);
+int Sprite_getState(void* self);
+void Sprite_setState(void* self, int arg0);
+int Sprite_getFrame(void* self);
+int Sprite_frameXPos(void* self, int arg0);
+int Sprite_frameYPos(void* self, int arg0);
+void SpriteEvent_constructor(void* self);
+void SpriteEvent_constructor(void* self, int arg0);
+int SpriteEvent_getEvent(void* self);
+void SpriteListener_spriteAction(void* self, void* arg0, void* arg1);
+void State_constructor(void* self, int arg0, int arg1);
+int State_next(void* self);
+int State_prev(void* self);
+void State_init(void* self);
+int State_current(void* self);
+int State_atEnd(void* self);
 
-// === Animator.Animator_constructor ((Lorg/eaves/piefight/PieCanvas;IILjavax/microedition/lcdui/Display;)V) ===
-// Instrucoes: 123
-// APIs usadas:
-//   2x javax/microedition/lcdui/Image.createImage -> j2me_image_create
-//   1x java/util/TimerTask.<init> -> ??? java/util/TimerTask.<init>
-//   1x java/util/Date.<init> -> ??? java/util/Date.<init>
-//   1x java/util/Date.getTime -> ??? java/util/Date.getTime
-//   1x java/util/Random.<init> -> j2me_random_init
-//   1x java/io/PrintStream.println -> ??? java/io/PrintStream.println
-//   1x java/util/Random.nextInt -> j2me_random_next
-//   1x java/lang/Math.abs -> abs
-void Animator_constructor() {
-    // TODO: traduzir logica do bytecode
+// Implementacoes
+void Animator_constructor(void* self, void* arg0, int arg1, int arg2, void* arg3) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Animator.Animator_guardState ((Lorg/eaves/piefight/Sprite;)V) ===
-// Instrucoes: 17
-void Animator_guardState() {
-    // TODO: traduzir logica do bytecode
+void Animator_guardState(void* self, void* arg0) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Animator.Animator_reset (()V) ===
-// Instrucoes: 14
-void Animator_reset() {
-    // TODO: traduzir logica do bytecode
+void Animator_reset(void* self) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Animator.Animator_spriteAction ((Lorg/eaves/piefight/Sprite;Lorg/eaves/piefight/SpriteEvent;)V) ===
-// Instrucoes: 62
-// APIs usadas:
-//   2x java/util/Random.nextInt -> j2me_random_next
-//   2x java/lang/Math.abs -> abs
-void Animator_spriteAction() {
-    // TODO: traduzir logica do bytecode
+void Animator_spriteAction(void* self, void* arg0, void* arg1) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Animator.Animator_keyPressed ((I)V) ===
-// Instrucoes: 57
 void Animator_keyPressed(void* self, int arg0) {
     Animator* s = (Animator*)self;
-    (void)arg0;
     if (!s) return;
-    // TODO: traduzir logica do bytecode
+    // TODO: traduzir
 }
 
-// === Animator.Animator_draw ((Ljavax/microedition/lcdui/Graphics;)V) ===
-// Instrucoes: 22
-// APIs usadas:
-//   1x javax/microedition/lcdui/Graphics.setClip -> j2me_clip_push
-void Animator_draw() {
-    // TODO: traduzir logica do bytecode
+void Animator_draw(void* self, void* arg0) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Animator.Animator_getFrame (()I) ===
-// Instrucoes: 6
-int Animator_getFrame() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+int Animator_getFrame(void* self) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === Animator.Animator_targetsActive (()I) ===
-// Instrucoes: 23
-int Animator_targetsActive() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+int Animator_targetsActive(void* self) {
+    Animator* s = (Animator*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === Animator.Animator_run (()V) ===
-// Instrucoes: 23
-// APIs usadas:
-//   1x javax/microedition/lcdui/Canvas.repaint -> j2me_canvas_repaint
-//   1x javax/microedition/lcdui/Canvas.serviceRepaints -> ??? javax/microedition/lcdui/Canvas.serviceRepaints
 void Animator_run(void* self) {
-    Animator* a = (Animator*)self;
-    if (!a || !a->_parent) return;
-    if (PieCanvas_isRunning(a->_parent)) {
-        for (int i = 0; i < Animator_IMAGES; i++) {
-            if (a->_window && a->_window[i]) Sprite_animate(a->_window[i]);
-        }
-        j2me_canvas_repaint();
-        j2me_canvas_serviceRepaints();
-    }
-}
-
-// === PieCanvas.PieCanvas_constructor ((Lorg/eaves/piefight/PieMidlet;)V) ===
-// Instrucoes: 139
-// APIs usadas:
-//   4x javax/microedition/lcdui/Image.createImage -> j2me_image_create
-//   1x javax/microedition/lcdui/Canvas.<init> -> ??? javax/microedition/lcdui/Canvas.<init>
-//   1x javax/microedition/lcdui/Display.getDisplay -> j2me_display_get
-//   1x javax/microedition/lcdui/Canvas.getWidth -> j2me_canvas_w
-//   1x javax/microedition/lcdui/Canvas.getHeight -> j2me_canvas_h
-//   1x javax/microedition/lcdui/Canvas.isDoubleBuffered -> ??? javax/microedition/lcdui/Canvas.isDoubleBuffered
-//   1x javax/microedition/midlet/MIDlet.getAppProperty -> ??? javax/microedition/midlet/MIDlet.getAppProperty
-//   1x javax/microedition/lcdui/Font.getFont -> ??? javax/microedition/lcdui/Font.getFont
-void PieCanvas_constructor() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_changeLevel ((I)V) ===
-// Instrucoes: 209
-void PieCanvas_changeLevel() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_keyPressed ((I)V) ===
-// Instrucoes: 14
-void PieCanvas_keyPressed(int arg0) {
-    PieCanvas* s = (PieCanvas*)_self;
+    Animator* s = (Animator*)self;
     if (!s) return;
-    int n = arg0 - 48;
-    if (n > 0 && n < 7 && s->_sprites != 0) {
-        Animator_keyPressed(s->_sprites, n);
-    }
+    // TODO: traduzir
 }
 
-// === PieCanvas.PieCanvas_ammoAvailable (()Z) ===
-// Instrucoes: 13
-int PieCanvas_ammoAvailable() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
-}
-
-// === PieCanvas.PieCanvas_showNotify (()V) ===
-// Instrucoes: 20
-// APIs usadas:
-//   1x java/util/Timer.<init> -> ??? java/util/Timer.<init>
-//   1x java/util/Timer.scheduleAtFixedRate -> ??? java/util/Timer.scheduleAtFixedRate
-void PieCanvas_showNotify() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_hideNotify (()V) ===
-// Instrucoes: 4
-void PieCanvas_hideNotify() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_isRunning (()Z) ===
-// Instrucoes: 3
-int PieCanvas_isRunning() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
-}
-
-// === PieCanvas.PieCanvas_maxAlive (()I) ===
-// Instrucoes: 3
-int PieCanvas_maxAlive() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
-}
-
-// === PieCanvas.PieCanvas_targetShown (()V) ===
-// Instrucoes: 16
-void PieCanvas_targetShown() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_targetsLeft (()Z) ===
-// Instrucoes: 7
-int PieCanvas_targetsLeft() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
-}
-
-// === PieCanvas.PieCanvas_nextLevel (()V) ===
-// Instrucoes: 15
-// APIs usadas:
-//   1x java/lang/System.gc -> ??? java/lang/System.gc
-void PieCanvas_nextLevel() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_targetHit (()V) ===
-// Instrucoes: 13
-void PieCanvas_targetHit() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_drawScore ((Ljavax/microedition/lcdui/Graphics;)V) ===
-// Instrucoes: 194
-// APIs usadas:
-//   10x java/lang/StringBuffer.append -> ??? java/lang/StringBuffer.append
-//   6x javax/microedition/lcdui/Graphics.drawString -> j2me_font_draw
-//   5x java/lang/StringBuffer.<init> -> ??? java/lang/StringBuffer.<init>
-//   5x java/lang/StringBuffer.toString -> ??? java/lang/StringBuffer.toString
-//   2x javax/microedition/lcdui/Graphics.setColor -> j2me_gfx_set_color
-//   1x javax/microedition/lcdui/Graphics.fillRect -> j2me_gfx_fill_rect
-//   1x javax/microedition/lcdui/Graphics.setFont -> j2me_noop
-//   1x javax/microedition/lcdui/Graphics.drawImage -> j2me_image_blit
-void PieCanvas_drawScore(void* self, void* g) {
-    (void)self; (void)g;
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_endScore (()V) ===
-// Instrucoes: 4
-void PieCanvas_endScore() {
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_drawGame ((Ljavax/microedition/lcdui/Graphics;)V) ===
-// Instrucoes: 139
-// APIs usadas:
-//   3x javax/microedition/lcdui/Graphics.setColor -> j2me_gfx_set_color
-//   3x javax/microedition/lcdui/Graphics.fillRect -> j2me_gfx_fill_rect
-//   3x javax/microedition/lcdui/Graphics.drawString -> j2me_font_draw
-//   2x javax/microedition/lcdui/Graphics.setFont -> j2me_noop
-//   2x java/lang/Integer.toString -> j2me_int_to_string
-//   1x javax/microedition/lcdui/Graphics.setClip -> j2me_clip_push
-//   1x javax/microedition/lcdui/Graphics.drawRect -> ??? javax/microedition/lcdui/Graphics.drawRect
-void PieCanvas_drawGame(void* self, void* g) {
-    (void)self; (void)g;
-    // TODO: traduzir logica do bytecode
-}
-
-// === PieCanvas.PieCanvas_paint ((Ljavax/microedition/lcdui/Graphics;)V) ===
-// Instrucoes: 43
-// APIs usadas:
-//   1x javax/microedition/lcdui/Image.getGraphics -> j2me_image_get_graphics
-//   1x java/lang/System.gc -> ??? java/lang/System.gc
-//   1x javax/microedition/lcdui/Graphics.drawImage -> j2me_image_blit
-void PieCanvas_paint(void* arg1) {
-    PieCanvas* s = (PieCanvas*)_self;
+void PieCanvas_constructor(void* self, void* arg0) {
+    PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    void* g = arg1;
-    if (s->_offscreen != 0) g = j2me_image_get_graphics(s->_offscreen);
-    if (s->_endLevel > 0) {
-        PieCanvas_drawScore(s, g);
-        if (s->_endLevel > 1) {
-            s->_endLevel = 0;
-            PieCanvas_nextLevel();
-            if (s->_parent) PieMidlet_resetScoreNext(s->_parent);
-            j2me_gc();
-        }
-    } else {
-        PieCanvas_drawGame(s, g);
-    }
-    if (arg1 != s->_offscreen && s->_offscreen) {
-        j2me_image_blit((J2MEImage*)s->_offscreen, 0, 0);
-    }
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_constructor (()V) ===
-// Instrucoes: 61
-// APIs usadas:
-//   3x javax/microedition/lcdui/Command.<init> -> ??? javax/microedition/lcdui/Command.<init>
-//   1x javax/microedition/midlet/MIDlet.<init> -> ??? javax/microedition/midlet/MIDlet.<init>
-//   1x javax/microedition/midlet/MIDlet.getAppProperty -> ??? javax/microedition/midlet/MIDlet.getAppProperty
-void PieMidlet_constructor() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_changeLevel(void* self, int arg0) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_startApp (()V) ===
-// Instrucoes: 68
-// APIs usadas:
-//   2x javax/microedition/lcdui/Displayable.addCommand -> ??? javax/microedition/lcdui/Displayable.addCommand
-//   2x javax/microedition/lcdui/Displayable.setCommandListener -> ??? javax/microedition/lcdui/Displayable.setCommandListener
-//   1x javax/microedition/lcdui/Display.getDisplay -> j2me_display_get
-//   1x javax/microedition/lcdui/Image.createImage -> j2me_image_create
-//   1x javax/microedition/lcdui/ImageItem.<init> -> ??? javax/microedition/lcdui/ImageItem.<init>
-//   1x javax/microedition/lcdui/Form.<init> -> ??? javax/microedition/lcdui/Form.<init>
-//   1x javax/microedition/lcdui/Form.append -> ??? javax/microedition/lcdui/Form.append
-//   1x javax/microedition/lcdui/Display.setCurrent -> j2me_display_set
-void PieMidlet_startApp() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_keyPressed(void* self, int arg0) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_newPieCanvas (()V) ===
-// Instrucoes: 10
-// APIs usadas:
-//   1x javax/microedition/lcdui/Display.setCurrent -> j2me_display_set
-//   1x java/lang/System.gc -> ??? java/lang/System.gc
-void PieMidlet_newPieCanvas() {
-    // TODO: traduzir logica do bytecode
+int PieCanvas_ammoAvailable(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === PieMidlet.PieMidlet_doScoreNext (()V) ===
-// Instrucoes: 12
-// APIs usadas:
-//   1x javax/microedition/lcdui/Displayable.addCommand -> ??? javax/microedition/lcdui/Displayable.addCommand
-void PieMidlet_doScoreNext() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_showNotify(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_resetScoreNext (()V) ===
-// Instrucoes: 4
-void PieMidlet_resetScoreNext() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_hideNotify(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_commandAction ((Ljavax/microedition/lcdui/Command;Ljavax/microedition/lcdui/Displayable;)V) ===
-// Instrucoes: 39
-// APIs usadas:
-//   1x javax/microedition/lcdui/Displayable.removeCommand -> ??? javax/microedition/lcdui/Displayable.removeCommand
-//   1x java/lang/Thread.sleep -> j2me_sleep
-//   1x java/lang/System.gc -> ??? java/lang/System.gc
-void PieMidlet_commandAction() {
-    // TODO: traduzir logica do bytecode
+int PieCanvas_isRunning(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === PieMidlet.PieMidlet_pauseApp (()V) ===
-// Instrucoes: 1
-void PieMidlet_pauseApp() {
-    // TODO: traduzir logica do bytecode
+int PieCanvas_maxAlive(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === PieMidlet.PieMidlet_destroyApp ((Z)V) ===
-// Instrucoes: 1
-void PieMidlet_destroyApp() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_targetShown(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === PieMidlet.PieMidlet_exit (()V) ===
-// Instrucoes: 6
-// APIs usadas:
-//   1x javax/microedition/midlet/MIDlet.notifyDestroyed -> ??? javax/microedition/midlet/MIDlet.notifyDestroyed
-void PieMidlet_exit() {
-    // TODO: traduzir logica do bytecode
+int PieCanvas_targetsLeft(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === Score.Score_constructor ((I)V) ===
-// Instrucoes: 46
-// APIs usadas:
-//   2x javax/microedition/lcdui/Command.<init> -> ??? javax/microedition/lcdui/Command.<init>
-//   2x java/lang/StringBuffer.append -> ??? java/lang/StringBuffer.append
-//   2x javax/microedition/lcdui/Form.append -> ??? javax/microedition/lcdui/Form.append
-//   2x javax/microedition/lcdui/Displayable.addCommand -> ??? javax/microedition/lcdui/Displayable.addCommand
-//   1x javax/microedition/lcdui/Form.<init> -> ??? javax/microedition/lcdui/Form.<init>
-//   1x java/lang/StringBuffer.<init> -> ??? java/lang/StringBuffer.<init>
-//   1x java/lang/Integer.toString -> j2me_int_to_string
-//   1x java/lang/StringBuffer.toString -> ??? java/lang/StringBuffer.toString
-void Score_constructor() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_nextLevel(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Score.Score_getPlayCommand (()Ljavax/microedition/lcdui/Command;) ===
-// Instrucoes: 3
-Command* Score_getPlayCommand() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void PieCanvas_targetHit(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Score.Score_getExitCommand (()Ljavax/microedition/lcdui/Command;) ===
-// Instrucoes: 3
-Command* Score_getExitCommand() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void PieCanvas_drawScore(void* self, void* arg0) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_constructor ((Ljavax/microedition/lcdui/Image;)V) ===
-// Instrucoes: 16
-// APIs usadas:
-//   1x java/lang/Object.<init> -> j2me_noop
-void Sprite_constructor() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_endScore(void* self) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_start (()V) ===
-// Instrucoes: 76
-void Sprite_start() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_drawGame(void* self, void* arg0) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_throwAt (()V) ===
-// Instrucoes: 4
-void Sprite_throwAt() {
-    // TODO: traduzir logica do bytecode
+void PieCanvas_paint(void* self, void* arg0) {
+    PieCanvas* s = (PieCanvas*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_setListener ((Lorg/eaves/piefight/SpriteListener;)V) ===
-// Instrucoes: 4
-void Sprite_setListener() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_constructor(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_nextState (()V) ===
-// Instrucoes: 18
-void Sprite_nextState() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_startApp(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_action ((I)V) ===
-// Instrucoes: 13
-void Sprite_action() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_newPieCanvas(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_draw ((Ljavax/microedition/lcdui/Graphics;)V) ===
-// Instrucoes: 83
-// APIs usadas:
-//   1x javax/microedition/lcdui/Graphics.clipRect -> ??? javax/microedition/lcdui/Graphics.clipRect
-//   1x javax/microedition/lcdui/Graphics.drawImage -> j2me_image_blit
-//   1x javax/microedition/lcdui/Graphics.fillRect -> j2me_gfx_fill_rect
-void Sprite_draw() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_doScoreNext(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_animate (()V) ===
-// Instrucoes: 24
-void Sprite_animate() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_resetScoreNext(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_clear ((Ljavax/microedition/lcdui/Graphics;II)V) ===
-// Instrucoes: 17
-// APIs usadas:
-//   2x javax/microedition/lcdui/Graphics.setColor -> j2me_gfx_set_color
-//   1x javax/microedition/lcdui/Graphics.fillRect -> j2me_gfx_fill_rect
-void Sprite_clear() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_commandAction(void* self, void* arg0, void* arg1) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_setX ((I)V) ===
-// Instrucoes: 4
-void Sprite_setX() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_pauseApp(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_setY ((I)V) ===
-// Instrucoes: 4
-void Sprite_setY() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_destroyApp(void* self, int arg0) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_frameX ((I)V) ===
-// Instrucoes: 4
-void Sprite_frameX() {
-    // TODO: traduzir logica do bytecode
+void PieMidlet_exit(void* self) {
+    PieMidlet* s = (PieMidlet*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_frameY ((I)V) ===
-// Instrucoes: 4
-void Sprite_frameY() {
-    // TODO: traduzir logica do bytecode
+void Score_constructor(void* self, int arg0) {
+    Score* s = (Score*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_getState (()I) ===
-// Instrucoes: 3
-int Sprite_getState() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void* Score_getPlayCommand(void* self) {
+    Score* s = (Score*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === Sprite.Sprite_setState ((I)V) ===
-// Instrucoes: 13
-void Sprite_setState() {
-    // TODO: traduzir logica do bytecode
+void* Score_getExitCommand(void* self) {
+    Score* s = (Score*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === Sprite.Sprite_getFrame (()I) ===
-// Instrucoes: 7
-int Sprite_getFrame() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_constructor(void* self, void* arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_frameXPos ((I)I) ===
-// Instrucoes: 5
-int Sprite_frameXPos() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_start(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === Sprite.Sprite_frameYPos ((I)I) ===
-// Instrucoes: 3
-int Sprite_frameYPos() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_throwAt(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === SpriteEvent.SpriteEvent_constructor (()V) ===
-// Instrucoes: 3
-// APIs usadas:
-//   1x java/lang/Object.<init> -> j2me_noop
-void SpriteEvent_constructor() {
-    // TODO: traduzir logica do bytecode
+void Sprite_setListener(void* self, void* arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === SpriteEvent.SpriteEvent_constructor_2 ((I)V) ===
-// Instrucoes: 6
-// APIs usadas:
-//   1x java/lang/Object.<init> -> j2me_noop
-void SpriteEvent_constructor_2() {
-    // TODO: traduzir logica do bytecode
+void Sprite_nextState(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === SpriteEvent.SpriteEvent_getEvent (()I) ===
-// Instrucoes: 3
-int SpriteEvent_getEvent() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_action(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === State.State_constructor ((II)V) ===
-// Instrucoes: 18
-// APIs usadas:
-//   1x java/lang/Object.<init> -> j2me_noop
-void State_constructor() {
-    // TODO: traduzir logica do bytecode
+void Sprite_draw(void* self, void* arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === State.State_next (()I) ===
-// Instrucoes: 27
-int State_next() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_animate(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === State.State_prev (()I) ===
-// Instrucoes: 27
-int State_prev() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+void Sprite_clear(void* self, void* arg0, int arg1, int arg2) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
 }
 
-// === State.State_init (()V) ===
-// Instrucoes: 5
+void Sprite_setX(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+void Sprite_setY(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+void Sprite_frameX(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+void Sprite_frameY(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+int Sprite_getState(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+void Sprite_setState(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+int Sprite_getFrame(void* self) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+int Sprite_frameXPos(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+int Sprite_frameYPos(void* self, int arg0) {
+    Sprite* s = (Sprite*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+void SpriteEvent_constructor(void* self) {
+    SpriteEvent* s = (SpriteEvent*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+void SpriteEvent_constructor(void* self, int arg0) {
+    SpriteEvent* s = (SpriteEvent*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+int SpriteEvent_getEvent(void* self) {
+    SpriteEvent* s = (SpriteEvent*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+void SpriteListener_spriteAction(void* self, void* arg0, void* arg1) {
+    SpriteListener* s = (SpriteListener*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+void State_constructor(void* self, int arg0, int arg1) {
+    State* s = (State*)self;
+    if (!s) return;
+    // TODO: traduzir
+}
+
+int State_next(void* self) {
+    State* s = (State*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
+int State_prev(void* self) {
+    State* s = (State*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
+}
+
 void State_init(void* self) {
     State* s = (State*)self;
     if (!s) return;
-    s->_frame = s->_start;
+    // TODO: traduzir
 }
 
-// === State.State_current (()I) ===
-// Instrucoes: 3
-int State_current() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+int State_current(void* self) {
+    State* s = (State*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// === State.State_atEnd (()Z) ===
-// Instrucoes: 9
-int State_atEnd() {
-    // TODO: traduzir logica do bytecode
-    return 0;  // TODO
+int State_atEnd(void* self) {
+    State* s = (State*)self;
+    if (!s) return;
+    // TODO: traduzir
+    return 0;
 }
 
-// ============================================
-// GAME LOOP PRINCIPAL
-// ============================================
-
+// Main
 int main(void) {
     j2me_gfx_init();
     j2me_input_init();
     j2me_random_init();
 
+    Animator* mc = (Animator*)calloc(1, sizeof(Animator));
+    _self = mc;
+    msf_mc = mc;
+
     while (1) {
         j2me_input_update();
         if (j2me_input_should_quit()) break;
-
         j2me_gfx_begin_frame();
         j2me_gfx_clear(0x101020);
-
-        // TODO: chamar metodos do jogo aqui
-        // PieMidlet_startApp();
-        // Animator_paint();
-
         j2me_gfx_flip();
     }
-
     j2me_gfx_shutdown();
     sceKernelExitGame();
     return 0;
