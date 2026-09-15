@@ -10,6 +10,9 @@
 #include "j2me_clip.h"
 #include "j2me_runtime.h"
 
+PSP_MODULE_INFO("piefight", 0, 1, 0);
+PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER);
+
 #define SCR_W 480
 #define SCR_H 272
 
