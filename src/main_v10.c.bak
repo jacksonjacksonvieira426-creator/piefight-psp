@@ -1,4 +1,4 @@
-// piefight - main.c gerado por V11
+// piefight - main.c gerado por V10 (consistente)
 #include <pspkernel.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,6 +13,7 @@
 #define SCR_W 480
 #define SCR_H 272
 
+// Tipos J2ME como void*
 typedef void* Image;
 typedef void* Graphics;
 typedef void* Font;
@@ -36,7 +37,6 @@ void j2me_canvas_serviceRepaints(void) { }
 void j2me_gc(void) { }
 void* j2me_image_get_graphics(void* img) { return img; }
 
-// Forward typedefs
 typedef struct Animator_s Animator;
 typedef struct PieCanvas_s PieCanvas;
 typedef struct PieMidlet_s PieMidlet;
@@ -51,7 +51,7 @@ void* _self = 0;
 void* _p1_self = 0;
 void* _p2_self = 0;
 void* _role_self = 0;
-Animator* msf_mc = 0;
+PieCanvas* msf_mc = 0;
 int Game_count = 0;
 int MapCanvas_OFFY = 96;
 int MapCanvas_OFFX = 180;
@@ -60,7 +60,16 @@ int MapCanvas_CanvasHeight = 272;
 int MapCanvas_still = 0;
 int MapCanvas_lightflag = 0;
 
-// Structs
+// Forward declarations
+typedef struct Animator_s Animator;
+typedef struct PieCanvas_s PieCanvas;
+typedef struct PieMidlet_s PieMidlet;
+typedef struct Score_s Score;
+typedef struct Sprite_s Sprite;
+typedef struct SpriteEvent_s SpriteEvent;
+typedef struct SpriteListener_s SpriteListener;
+typedef struct State_s State;
+
 struct Animator_s {
     int          FRAME_WIDTH;
     int          FRAME_HEIGHT;
@@ -234,8 +243,7 @@ void Sprite_setState(void* self, int arg0);
 int Sprite_getFrame(void* self);
 int Sprite_frameXPos(void* self, int arg0);
 int Sprite_frameYPos(void* self, int arg0);
-void SpriteEvent_constructor(void* self);
-void SpriteEvent_constructor_2(void* self, int arg0);
+void SpriteEvent_constructor(void* self, int arg0);
 int SpriteEvent_getEvent(void* self);
 void SpriteListener_spriteAction(void* self, void* arg0, void* arg1);
 void State_constructor(void* self, int arg0, int arg1);
@@ -249,49 +257,42 @@ int State_atEnd(void* self);
 void Animator_constructor(void* self, void* arg0, int arg1, int arg2, void* arg3) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Animator_guardState(void* self, void* arg0) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Animator_reset(void* self) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Animator_spriteAction(void* self, void* arg0, void* arg1) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Animator_keyPressed(void* self, int arg0) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Animator_draw(void* self, void* arg0) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int Animator_getFrame(void* self) {
     Animator* s = (Animator*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -299,7 +300,6 @@ int Animator_getFrame(void* self) {
 int Animator_targetsActive(void* self) {
     Animator* s = (Animator*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -307,35 +307,30 @@ int Animator_targetsActive(void* self) {
 void Animator_run(void* self) {
     Animator* s = (Animator*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_constructor(void* self, void* arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_changeLevel(void* self, int arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_keyPressed(void* self, int arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int PieCanvas_ammoAvailable(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -343,21 +338,18 @@ int PieCanvas_ammoAvailable(void* self) {
 void PieCanvas_showNotify(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_hideNotify(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int PieCanvas_isRunning(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -365,7 +357,6 @@ int PieCanvas_isRunning(void* self) {
 int PieCanvas_maxAlive(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -373,14 +364,12 @@ int PieCanvas_maxAlive(void* self) {
 void PieCanvas_targetShown(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int PieCanvas_targetsLeft(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -388,119 +377,102 @@ int PieCanvas_targetsLeft(void* self) {
 void PieCanvas_nextLevel(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_targetHit(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_drawScore(void* self, void* arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_endScore(void* self) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_drawGame(void* self, void* arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieCanvas_paint(void* self, void* arg0) {
     PieCanvas* s = (PieCanvas*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_constructor(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_startApp(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_newPieCanvas(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_doScoreNext(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_resetScoreNext(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_commandAction(void* self, void* arg0, void* arg1) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_pauseApp(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_destroyApp(void* self, int arg0) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void PieMidlet_exit(void* self) {
     PieMidlet* s = (PieMidlet*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Score_constructor(void* self, int arg0) {
     Score* s = (Score*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void* Score_getPlayCommand(void* self) {
     Score* s = (Score*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -508,7 +480,6 @@ void* Score_getPlayCommand(void* self) {
 void* Score_getExitCommand(void* self) {
     Score* s = (Score*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -516,98 +487,84 @@ void* Score_getExitCommand(void* self) {
 void Sprite_constructor(void* self, void* arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_start(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_throwAt(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_setListener(void* self, void* arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_nextState(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_action(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_draw(void* self, void* arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_animate(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_clear(void* self, void* arg0, int arg1, int arg2) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_setX(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_setY(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_frameX(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void Sprite_frameY(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int Sprite_getState(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -615,14 +572,12 @@ int Sprite_getState(void* self) {
 void Sprite_setState(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int Sprite_getFrame(void* self) {
     Sprite* s = (Sprite*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -630,7 +585,6 @@ int Sprite_getFrame(void* self) {
 int Sprite_frameXPos(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -638,29 +592,22 @@ int Sprite_frameXPos(void* self, int arg0) {
 int Sprite_frameYPos(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
 
-void SpriteEvent_constructor(void* self) {
+void SpriteEvent_constructor(void* self, int arg0) {
     SpriteEvent* s = (SpriteEvent*)self;
     if (!s) return;
-    (void)s;
+    (void)arg0;
     // TODO: traduzir
 }
 
-void SpriteEvent_constructor_2(void* self, int arg0) {
-    SpriteEvent* s = (SpriteEvent*)self;
-    if (!s) return;
-    (void)s;
-    // TODO: traduzir
-}
+
 
 int SpriteEvent_getEvent(void* self) {
     SpriteEvent* s = (SpriteEvent*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -668,21 +615,18 @@ int SpriteEvent_getEvent(void* self) {
 void SpriteListener_spriteAction(void* self, void* arg0, void* arg1) {
     SpriteListener* s = (SpriteListener*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 void State_constructor(void* self, int arg0, int arg1) {
     State* s = (State*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int State_next(void* self) {
     State* s = (State*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -690,7 +634,6 @@ int State_next(void* self) {
 int State_prev(void* self) {
     State* s = (State*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -698,14 +641,12 @@ int State_prev(void* self) {
 void State_init(void* self) {
     State* s = (State*)self;
     if (!s) return;
-    (void)s;
     // TODO: traduzir
 }
 
 int State_current(void* self) {
     State* s = (State*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -713,7 +654,6 @@ int State_current(void* self) {
 int State_atEnd(void* self) {
     State* s = (State*)self;
     if (!s) return 0;
-    (void)s;
     // TODO: traduzir
     return 0;
 }
@@ -724,7 +664,7 @@ int main(void) {
     j2me_input_init();
     j2me_random_init();
 
-    Animator* mc = (Animator*)calloc(1, sizeof(Animator));
+    PieCanvas* mc = (PieCanvas*)calloc(1, sizeof(PieCanvas));
     _self = mc;
     msf_mc = mc;
 
