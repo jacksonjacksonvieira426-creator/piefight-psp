@@ -596,9 +596,10 @@ int Sprite_frameYPos(void* self, int arg0) {
     return 0;
 }
 
-void SpriteEvent_constructor(void* self) {
+void SpriteEvent_constructor(void* self, int arg0) {
     SpriteEvent* s = (SpriteEvent*)self;
     if (!s) return;
+    (void)arg0;
     // TODO: traduzir
 }
 
