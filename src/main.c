@@ -239,7 +239,7 @@ void Animator_spriteAction() {
 
 // === Animator.Animator_keyPressed ((I)V) ===
 // Instrucoes: 57
-void Animator_keyPressed() {
+void Animator_keyPressed(s->_sprites) {
     // TODO: traduzir logica do bytecode
 }
 
@@ -423,10 +423,10 @@ void PieCanvas_paint(void* arg1) {
     if (!s) return;
     void* g = arg1;
     if (s->offscreen != 0) g = j2me_image_get_graphics(s->offscreen);
-    if (s->endLevel > 0) {
+    if (s->_endLevel > 0) {
         PieCanvas_drawScore(s, g);
-        if (s->endLevel > 1) {
-            s->endLevel = 0;
+        if (s->_endLevel > 1) {
+            s->_endLevel = 0;
             PieCanvas_nextLevel(s);
             if (s->_parent) PieMidlet_resetScoreNext(s->_parent);
             j2me_gc();
@@ -717,7 +717,7 @@ int State_prev() {
 void State_init(void* self) {
     State* s = (State*)self;
     if (!s) return;
-    s->frame = s->start;
+    s->_frame = s->_start;
 }
 
 // === State.State_current (()I) ===
