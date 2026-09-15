@@ -594,11 +594,7 @@ void SpriteEvent_constructor(void* self) {
     // TODO: traduzir
 }
 
-void SpriteEvent_constructor(void* self, int arg0) {
-    SpriteEvent* s = (SpriteEvent*)self;
-    if (!s) return;
-    // TODO: traduzir
-}
+
 
 int SpriteEvent_getEvent(void* self) {
     SpriteEvent* s = (SpriteEvent*)self;
