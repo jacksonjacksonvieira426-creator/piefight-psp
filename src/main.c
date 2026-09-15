@@ -44,16 +44,12 @@ void* _p2_self = 0;
 void* _role_self = 0;
 Animator* msf_mc = 0;
 int Game_count = 0;
-int MapCanvas_OFFY = 0;
-int MapCanvas_OFFX = 0;
-int MapCanvas_CanvasWidth = 0;
-int MapCanvas_CanvasHeight = 0;
+int MapCanvas_OFFY = 96;
+int MapCanvas_OFFX = 180;
+int MapCanvas_CanvasWidth = 480;
+int MapCanvas_CanvasHeight = 272;
 int MapCanvas_still = 0;
 int MapCanvas_lightflag = 0;
-MapCanvas_OFFY = 96;
-MapCanvas_OFFX = 180;
-MapCanvas_CanvasWidth = 480;
-MapCanvas_CanvasHeight = 272;
 
 // Forward declarations
 typedef struct Animator_s Animator;
@@ -252,7 +248,7 @@ int State_atEnd(void* self);
 // Implementacoes
 void Animator_constructor(void* self, void* arg0, int arg1, int arg2, void* arg3) {
     Animator* s = (Animator*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
 }
 
@@ -288,14 +284,14 @@ void Animator_draw(void* self, void* arg0) {
 
 int Animator_getFrame(void* self) {
     Animator* s = (Animator*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int Animator_targetsActive(void* self) {
     Animator* s = (Animator*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -326,7 +322,7 @@ void PieCanvas_keyPressed(void* self, int arg0) {
 
 int PieCanvas_ammoAvailable(void* self) {
     PieCanvas* s = (PieCanvas*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -345,14 +341,14 @@ void PieCanvas_hideNotify(void* self) {
 
 int PieCanvas_isRunning(void* self) {
     PieCanvas* s = (PieCanvas*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int PieCanvas_maxAlive(void* self) {
     PieCanvas* s = (PieCanvas*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -365,7 +361,7 @@ void PieCanvas_targetShown(void* self) {
 
 int PieCanvas_targetsLeft(void* self) {
     PieCanvas* s = (PieCanvas*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -468,14 +464,14 @@ void Score_constructor(void* self, int arg0) {
 
 void* Score_getPlayCommand(void* self) {
     Score* s = (Score*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 void* Score_getExitCommand(void* self) {
     Score* s = (Score*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -560,7 +556,7 @@ void Sprite_frameY(void* self, int arg0) {
 
 int Sprite_getState(void* self) {
     Sprite* s = (Sprite*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -573,21 +569,21 @@ void Sprite_setState(void* self, int arg0) {
 
 int Sprite_getFrame(void* self) {
     Sprite* s = (Sprite*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int Sprite_frameXPos(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int Sprite_frameYPos(void* self, int arg0) {
     Sprite* s = (Sprite*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -606,7 +602,7 @@ void SpriteEvent_constructor(void* self, int arg0) {
 
 int SpriteEvent_getEvent(void* self) {
     SpriteEvent* s = (SpriteEvent*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -625,14 +621,14 @@ void State_constructor(void* self, int arg0, int arg1) {
 
 int State_next(void* self) {
     State* s = (State*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int State_prev(void* self) {
     State* s = (State*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
@@ -645,14 +641,14 @@ void State_init(void* self) {
 
 int State_current(void* self) {
     State* s = (State*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
 
 int State_atEnd(void* self) {
     State* s = (State*)self;
-    if (!s) return;
+    if (!s) return 0;
     // TODO: traduzir
     return 0;
 }
